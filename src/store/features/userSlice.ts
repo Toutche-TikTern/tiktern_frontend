@@ -11,7 +11,7 @@ export const fetchUsers = createAsyncThunk(
     return data;
   }
 );
-
+// types
 interface StateTypes {
   entities: any;
   value: number;
