@@ -1,13 +1,16 @@
 'use client';
 
 import { configureStore } from '@reduxjs/toolkit';
-import userSlice from './features/userSlice';
+import authReducer from './features/auth/authSlice';
+import userReducer from './features/userSlice';
 
 export const makeStore = () =>
   configureStore({
     reducer: {
-      user: userSlice,
+      user: userReducer,
+      auth: authReducer,
     },
+    devTools: true,
   });
 
 export const store = makeStore();

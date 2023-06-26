@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .admin-activity-form_text {
+    @apply outline-none bg-transparent h-[50px] rounded-[14px] border border-white/20 text-white/80 font-medium text-lg px-[10px] focus:border-app-1;
+  }
+
+  .admin-activity-form_textarea {
+    @apply outline-none bg-transparent  rounded-[14px] border border-white/20 text-white/80 font-medium text-lg p-[10px] focus:border-app-1;
+  }
+}
