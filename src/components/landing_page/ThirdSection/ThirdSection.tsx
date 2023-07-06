@@ -88,7 +88,7 @@ const ThirdSection = (props: Props) => {
         </p>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 w-md:[40%] h-[40px] px-10 mt-10"
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 w-md:[40%] h-[40px] px-10 mt-10 !bg-app-2"
         >
           Become the Foundation Member! Join the Whitelist Now
         </Button>
@@ -225,7 +225,7 @@ const ThirdSection = (props: Props) => {
         </div>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto "
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto !bg-app-2"
         >
           Join the Whitelist Now
         </Button>
@@ -245,7 +245,7 @@ const ThirdSection = (props: Props) => {
             />
             <Button
               variant="contained"
-              className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto"
+              className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto !bg-app-2"
             >
               Become the Foundation Member! Join the Whitelist Now
             </Button>

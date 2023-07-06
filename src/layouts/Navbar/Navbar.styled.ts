@@ -41,7 +41,7 @@ export const IconsWrapper = styled.div`
 
 export const SigninButton = styled.button`
   background-color: #d830dc;
-  width: 150px;
+  width: 100px;
   height: 40px;
   border-radius: 15px;
   transition: all 300ms ease-in-out;

@@ -5,53 +5,27 @@ import {
   SectionHeading,
 } from '@/styles/styled_components/components/Text.styled';
 import React from 'react';
+import { CardContainer, TikternIsForCard } from '../Landing.styled';
 
 type Props = {};
 
 const SecondSection = (props: Props) => {
   return (
     <section>
-      <div className="flex items-center justify-center w-full gap-10 mt-5">
-        <div className="border border-black/10 rounded-2xl w-[600px] h-[500px] p-[40px] drop-shadow-lg bg-white">
-          <h1 className="text-[1.5rem] text-appColor4 text-center mb-6">
-            TikTern for Cyclists, Web3 Followers
-          </h1>
-          <ul className="flex flex-col gap-5 font-light list-disc">
-            <li>Navigation, with cycling friendly routing</li>
-            <li>
-              Create Trails (and own them), share with others to ride for free
-              or get paid
-            </li>
-            <li>Find popular Trails, ride with Navigation</li>
-            <li>Create and fully manage Live (private, open) events</li>
-            <li>Ride-to-Earn with a TikTern Bike (NFT)</li>
-            <li>Mint TikTern Bikes for Self, Rent or Sell</li>
-            <li>
-              Mint Discount vouchers on partnering brands and sell for a price
-            </li>
-          </ul>
-        </div>
-        <div className="border border-black/10 rounded-2xl w-[600px] h-[500px] p-[40px] drop-shadow-lg bg-white">
-          <h1 className="text-[1.5rem] text-appColor1 text-center mb-6">
-            TikTern for Cycling Clubs & Groups
-          </h1>
-          <ul className="flex flex-col gap-5 font-light list-disc">
-            <li>
-              Create Trails (and own them), share with others to ride for free
-              or get paid
-            </li>
-            <li>
-              Create and fully manage Live (private, open) events incl
-              registration, fees, scheduling, kick-off, tracking riders
-              throughout, results
-            </li>
-            <li>
-              Create and fully manage Offline (private, open) events incl
-              registration, fees, scheduling, kick-off, tracking rides, results
-            </li>
-          </ul>
-        </div>
-      </div>
+      <CardContainer>
+        {CARD_DATA.map((item, index) => (
+          <TikternIsForCard key={index} color={item.color}>
+            <div className='text-center text-xl mb-5'>{item.title}</div>
+            <div>
+              <ul className='text-sm'>
+                {item.desc.map((list, i) => (
+                  <li key={i}>{list}</li>
+                ))}
+              </ul>
+            </div>
+          </TikternIsForCard>
+        ))}
+      </CardContainer>
       {/* Section 2 */}
       <Para className="mx-auto text-center w-[60%] mt-16 text-gray-600">
         Unlike other Apps that monetise user-generated content, TikTern is a
@@ -68,5 +42,63 @@ const SecondSection = (props: Props) => {
     </section>
   );
 };
+
+const CARD_DATA = [
+  {
+    title: 'Cyclists',
+    desc: [
+      'Navigation, with bike-friendly routing',
+      'Create Trails, share with others for free/fees​',
+      'Find popular Trails, ride with Navigation',
+      'Create, manage and enjoy Live events and challenges',
+      'Ride-to-Earn with a TikTern Bike (NFT)',
+      'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
+      'Mint Trail (NFT)',
+    ],
+    color:'#4d69ff'
+  },
+  {
+    title: 'Cycling Clubs',
+    desc: [
+      'Club/Group Profile with members, history of activities',
+      'Create & manage riding events and challenges incl registration, tracking, results​​',
+      'Create Trails, share with others to ride for free/fees​',
+      'Promote your Club​',
+      'Ride-to-Earn with a TikTern Bike (NFT)',
+      'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
+      'Mint Trail (NFT)',
+    ],
+    color:'#883a53'
+
+  },
+  {
+    title: 'Tour Operators',
+    desc: [
+      'Tour Operator Profile with members, history of activities ​',
+      'Create & manage riding events incl registration, kick-off, tracking, results​',
+      'Create Trails, share with others to ride for free/fees​',
+      'Promote your Company​',
+      'Ride-to-Earn with a TikTern Bike (NFT)',
+      'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
+      'Mint Trail (NFT)',
+    ],
+    color:'#ba9d0b'
+
+  },
+  {
+    title: 'Shared Bike Operators',
+    desc: [
+      'Shared User and Activity information between both Apps​',
+      'Custom Web3 offers to retain and grow users/usage​',
+      'Find popular Trails, ride with Navigation',
+      'Create & manage riding events and challenges incl registration, tracking, results​',
+      'Ride-to-Earn with a TikTern Bike (NFT)',
+      'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
+      'Mint Trail (NFT)',
+    ],
+    color:'#ff4d00'
+
+  },
+];
 
 export default SecondSection;

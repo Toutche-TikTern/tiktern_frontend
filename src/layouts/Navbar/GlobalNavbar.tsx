@@ -82,9 +82,14 @@ const GlobalNavbar = (props: Props) => {
             Admin Dashboard
           </SigninButton>
         ) : (
-          <SigninButton onClick={() => route.push('/auth/login')}>
-            Sign In
-          </SigninButton>
+          <div className='flex gap-2'>
+            <SigninButton onClick={() => route.push('/auth/login')} className='!bg-white !text-black !ring-1 !ring-black/10'>
+              Sign In
+            </SigninButton>
+            <SigninButton onClick={() => route.push('/auth/signup')}>
+              Sign Up
+            </SigninButton>
+          </div>
         )}
       </NavCol2>
     </NavbarContainer>
