@@ -1,6 +1,6 @@
 'use client';
 import ActivityForm from '@/components/admin/ActivityForm';
-import AdminNavBar from '@/components/admin/AdminNavbar';
+import AdminNavBar from '@/components/admin/AdminNavBar';
 import React from 'react';
 
 const ActivityPage = () => {

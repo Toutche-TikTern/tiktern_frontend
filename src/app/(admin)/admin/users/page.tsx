@@ -1,6 +1,5 @@
 'use client';
 import AdminNavbar from '@/components/admin/AdminNavBar';
-// import AdminNavBar from '@/components/admin/AdminNavbar';
 import React from 'react';
 
 const ManageUsersPage = () => {

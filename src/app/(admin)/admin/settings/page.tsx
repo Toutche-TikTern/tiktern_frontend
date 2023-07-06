@@ -1,5 +1,5 @@
 'use client';
-import AdminNavBar from '@/components/admin/AdminNavbar';
+import AdminNavBar from '@/components/admin/AdminNavBar';
 import React from 'react';
 
 const AdminSettingsPage = () => {
