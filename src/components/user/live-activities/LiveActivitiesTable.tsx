@@ -57,6 +57,7 @@ const LiveActivitiesTable = (props: Props) => {
               activityData !== undefined &&
               activityData.length > 0
                 ? activityData.map((item, index) => {
+                    // @ts-ignore
                     const expiry = moment(item?.activity_expiry).format(
                       'MMMM Do YYYY'
                     );
@@ -68,10 +69,12 @@ const LiveActivitiesTable = (props: Props) => {
                         </div>
                         {/* activity name or desc */}
                         <div className="w-[40%] flex  items-center">
+                          {/* @ts-ignore */}
                           {item.activity_desc}
                         </div>
                         {/* tern earned */}
                         <div className="w-[15%] flex text-center items-center justify-center">
+                          {/* @ts-ignore */}
                           {item.terns_reward}
                         </div>
                         {/* proof of completion */}
