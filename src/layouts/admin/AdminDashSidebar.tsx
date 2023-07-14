@@ -1,6 +1,7 @@
 'use client';
 import SidebarLink from '@/components/user/SidebarLink';
 import Image from 'next/image';
+import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
 import { FaRunning } from 'react-icons/fa';
@@ -28,12 +29,14 @@ const AdminDashSidebar = () => {
     <aside className="w-[300px]  h-screen relative drop-shadow-xl bg-dark-800">
       {/* logo */}
       <div className="flex items-center justify-center h-[15vh]">
-        <Image
-          alt="Tiktern Logo"
-          src={'/logos/tik_logo-light.svg'}
-          height={100}
-          width={200}
-        />
+        <Link href={'/'}>
+          <Image
+            alt="Tiktern Logo"
+            src={'/logos/tik_logo-light.svg'}
+            height={100}
+            width={200}
+          />
+        </Link>
       </div>
       {/* ***************profile--section*********** */}
       <div className="h-[20vh] justify-center  flex flex-col items-center gap-2">

@@ -1,10 +1,10 @@
 'use client';
-import AdminNavbar from '@/components/admin/AdminNavBar';
+import AdminNavBar from '@/components/admin/AdminNavBar';
 
 const AdminDashboard = () => {
   return (
     <main className="flex-1">
-      <AdminNavbar title="Statistics" />
+      <AdminNavBar title="Statistics" />
     </main>
   );
 };

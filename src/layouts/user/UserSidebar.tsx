@@ -89,11 +89,11 @@ const PATHS = [
     link: '/user',
     icon: () => <MdSpaceDashboard />,
   },
-  {
-    name: 'Live Activities',
-    link: '/user/activity',
-    icon: () => <FaRunning />,
-  },
+  // {
+  //   name: 'Live Activities',
+  //   link: '/user/activity',
+  //   icon: () => <FaRunning />,
+  // },
   {
     name: 'Activity Archive',
     link: '/user/activity-archive',

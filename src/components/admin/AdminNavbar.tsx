@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-const AdminNavbar = ({ title }: { title: string }) => {
+const AdminNavBar = ({ title }: { title: string }) => {
   const dispatch = useDispatch();
   const router = useRouter();
   const handleLogout = () => {
@@ -28,4 +28,4 @@ const AdminNavbar = ({ title }: { title: string }) => {
   );
 };
 
-export default AdminNavbar;
+export default AdminNavBar;
