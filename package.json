@@ -44,7 +44,7 @@
     "typescript": "5.0.4"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.2.0",
+    "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.3",
     "@types/styled-components": "^5.1.26",
     "babel-plugin-styled-components": "^2.1.3",

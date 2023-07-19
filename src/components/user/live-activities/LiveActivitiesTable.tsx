@@ -40,7 +40,7 @@ const LiveActivitiesTable = (props: Props) => {
   useEffect(() => {
     // fetchUser();
     fetchActivity();
-    console.log(activityData);
+    // console.log(activityData);
   }, []);
 
   const handleFileChange = (
