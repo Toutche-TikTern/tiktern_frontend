@@ -6,12 +6,6 @@
     "name": "Mohd Ayan Ansari",
     "email": "mohdayanansari1999@gmail.com"
   },
-  "engines": {
-    "node": ">=18.0.0",
-    "yarn": "please-use-npm",
-    "pnpm": "please-use-npm",
-    "npm": ">=9.5.0"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
