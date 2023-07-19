@@ -1,6 +1,6 @@
 'use client';
-import AdminNavBar from '../../../../components/admin/AdminNavBar';
 
+import AdminNavBar from '@/components/admin/AdminNavBar';
 import { axiosClient } from '@/utils/axiosInstance';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
