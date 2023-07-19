@@ -1,18 +1,35 @@
+'use client';
 import { axiosClient } from '@/utils/axiosInstance';
+import axios from 'axios';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
-
 type Props = {};
 
+type Activity = {
+  _id: string;
+  user: string;
+  activity_desc: string;
+  terns_reward: number;
+  activity_expiry: string;
+  activity_status: string;
+};
+type FileState = {
+  activityId: string;
+  userId: string;
+  file: File | null;
+};
+
 const LiveActivitiesTable = (props: Props) => {
-  const [activityData, setActivityData] = useState<null | []>(null);
+  const [activityData, setActivityData] = useState<Activity[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [imageFile, setImageFile] = useState<File[] | null>([]);
+  const [submittedActivities, setSubmittedActivities] = useState<string[]>([]);
 
   const fetchActivity = async () => {
     setIsLoading(true);
     try {
       const { data } = await axiosClient.get('/activity');
-      setActivityData(data?.activity);
+      setActivityData(data?.activity || []);
       setIsLoading(false);
     } catch (error) {
       console.log('Error in fetching Activity');
@@ -21,9 +38,68 @@ const LiveActivitiesTable = (props: Props) => {
 
   // calling in useEffect
   useEffect(() => {
+    // fetchUser();
     fetchActivity();
     console.log(activityData);
   }, []);
+
+  const handleFileChange = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    activityId: string
+  ) => {
+    const files = e.target.files;
+    if (files) {
+      // @ts-ignore
+      const updatedFileStates = [...imageFile];
+      // @ts-ignore
+      updatedFileStates[activityId] = files[0];
+      // @ts-ignore
+      setImageFile(updatedFileStates);
+    }
+  };
+
+  const handleClick = async (activityId: string) => {
+    console.log(activityId);
+
+    const currUser = localStorage.getItem('user');
+    if (imageFile) {
+      if (currUser) {
+        // @ts-ignore
+        const userId = JSON.parse(currUser)._id;
+
+        console.log(userId);
+        const formData = new FormData();
+        console.log(imageFile);
+        // @ts-ignore
+        const file = imageFile[activityId];
+        if (file) {
+          formData.append('image', file as Blob, file.name);
+          formData.append('userId', userId);
+          formData.append('activityId', activityId);
+          const token = localStorage.getItem('token');
+          console.log('token', token);
+          try {
+            const res = await axios.patch(
+              'http://localhost:1999/api/v1/activity/image',
+              formData,
+              {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              }
+            );
+            console.log('Response:', res);
+            setSubmittedActivities([...submittedActivities, activityId]);
+            setImageFile(null);
+          } catch (error) {
+            console.log(error);
+          }
+        }
+      }
+    }
+  };
+
+  // todo::: handle activity status if uploaded remove the input form
 
   return (
     <section className="py-[20px] px-[40px] mt-10">
@@ -61,6 +137,9 @@ const LiveActivitiesTable = (props: Props) => {
                     const expiry = moment(item?.activity_expiry).format(
                       'MMMM Do YYYY'
                     );
+                    const isActivitySubmitted = submittedActivities.includes(
+                      item._id
+                    );
                     return (
                       <div key={index} className="flex ">
                         {/* date */}
@@ -79,9 +158,41 @@ const LiveActivitiesTable = (props: Props) => {
                         </div>
                         {/* proof of completion */}
                         <div className="w-[30%] flex justify-center items-center">
-                          <button className="bg-app-2 rounded-xl w-[200px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300">
-                            Upload Proof
-                          </button>
+                          {isActivitySubmitted ? (
+                            <div>Uploaded</div>
+                          ) : (
+                            <div className="flex items-center gap-2">
+                              <label
+                                htmlFor={`image-${item._id}`}
+                                className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer"
+                              >
+                                <input
+                                  hidden
+                                  type="file"
+                                  name={`image-${item._id}`}
+                                  id={`image-${item._id}`}
+                                  onChange={(e) =>
+                                    handleFileChange(e, item._id)
+                                  }
+                                />
+                                {imageFile !== null &&
+                                // @ts-ignore
+                                imageFile[item._id] &&
+                                // @ts-ignore
+                                imageFile[item._id]?.name
+                                  ? // @ts-ignore
+                                    imageFile[item._id]?.name
+                                  : 'Choose Image'}
+                              </label>
+                              <button
+                                // @ts-ignore
+                                onClick={() => handleClick(item._id)}
+                                disabled={isActivitySubmitted}
+                              >
+                                Upload
+                              </button>
+                            </div>
+                          )}
                         </div>
                       </div>
                     );

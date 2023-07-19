@@ -23,6 +23,7 @@ export const loginUser = createAsyncThunk(
       });
       // setCookie('token', user?.access_token);
       setCookie('role', user?.roles[0]);
+      localStorage.setItem('token', user?.access_token);
       if (user?.roles.includes('admin')) {
         router.push('/admin');
       } else {
@@ -68,6 +69,7 @@ export const logoutUser = createAsyncThunk(
         const { data: user } = await axiosClient.post('/auth/logout');
         if (user.success) {
           deleteCookie('role');
+          localStorage.removeItem('token');
           router.push('/auth/login');
           return user;
         }
