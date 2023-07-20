@@ -1,6 +1,6 @@
 'use client';
 
-import AdminNavBar from '@/components/admin/AdminNavBar';
+import AdminHeader from '@/components/admin/AdminHeader';
 import { axiosClient } from '@/utils/axiosInstance';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
@@ -24,7 +24,7 @@ const ManageUsersPage = () => {
 
   return (
     <main className="flex-1 ">
-      <AdminNavBar title="Create/Delete/Update Roles of Users" />
+      <AdminHeader title="Create/Delete/Update Roles of Users" />
 
       <section className="p-5">
         {/* create users form */}

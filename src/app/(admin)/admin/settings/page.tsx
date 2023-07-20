@@ -1,10 +1,14 @@
 'use client';
 
-import AdminNavBar from '@/components/admin/AdminNavBar';
+import AdminHeader from '@/components/admin/AdminHeader';
 import React from 'react';
 
 const AdminSettingsPage = () => {
-  return <main>{/* <AdminNavBar title="Admin Settings" /> */}</main>;
+  return (
+    <main>
+      <AdminHeader title="Admin Settings" />
+    </main>
+  );
 };
 
 export default AdminSettingsPage;

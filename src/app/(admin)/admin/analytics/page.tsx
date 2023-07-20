@@ -1,9 +1,14 @@
 'use client';
 
+import AdminHeader from '@/components/admin/AdminHeader';
 import React from 'react';
 
 const AnalyticsPage = () => {
-  return <main>{/* <AdminNavBar title="Analytics" /> */}</main>;
+  return (
+    <main>
+      <AdminHeader title="Analytics" />
+    </main>
+  );
 };
 
 export default AnalyticsPage;
