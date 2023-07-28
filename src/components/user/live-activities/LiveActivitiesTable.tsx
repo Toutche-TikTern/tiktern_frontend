@@ -24,7 +24,7 @@ const LiveActivitiesTable = (props: Props) => {
   const [isLoading, setIsLoading] = useState(false);
   const [imageFile, setImageFile] = useState<File[] | null>([]);
   const [submittedActivities, setSubmittedActivities] = useState<string[]>([]);
-
+  const [uploading, setUploading] = useState<boolean>(false);
   const fetchActivity = async () => {
     setIsLoading(true);
     try {
@@ -60,7 +60,7 @@ const LiveActivitiesTable = (props: Props) => {
 
   const handleClick = async (activityId: string) => {
     console.log(activityId);
-
+    setUploading(true);
     const currUser = localStorage.getItem('user');
     if (imageFile) {
       if (currUser) {
@@ -91,6 +91,7 @@ const LiveActivitiesTable = (props: Props) => {
             console.log('Response:', res);
             setSubmittedActivities([...submittedActivities, activityId]);
             setImageFile(null);
+            setUploading(false);
           } catch (error) {
             console.log(error);
           }

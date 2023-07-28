@@ -18,7 +18,7 @@ const UserNavbar = ({ title }: { title: string }) => {
   return (
     <nav className="flex px-[20px] items-center bg-dark-800  justify-between w-full h-[80px] border-b border-white/10">
       <div className="text-2xl font-light">{title}</div>
-      <div className='flex items-center gap-5'>
+      <div className="flex items-center gap-5">
         <NavTikTern />
         <Tooltip title="Logout" className="">
           <IconButton onClick={handleLogout}>

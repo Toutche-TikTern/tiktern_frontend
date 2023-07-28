@@ -15,9 +15,9 @@ const SecondSection = (props: Props) => {
       <CardContainer>
         {CARD_DATA.map((item, index) => (
           <TikternIsForCard key={index} color={item.color}>
-            <div className='text-center text-xl mb-5'>{item.title}</div>
+            <div className="text-center text-xl mb-5">{item.title}</div>
             <div>
-              <ul className='text-sm'>
+              <ul className="text-sm">
                 {item.desc.map((list, i) => (
                   <li key={i}>{list}</li>
                 ))}
@@ -55,7 +55,7 @@ const CARD_DATA = [
       'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
       'Mint Trail (NFT)',
     ],
-    color:'#4d69ff'
+    color: '#4d69ff',
   },
   {
     title: 'Cycling Clubs',
@@ -68,8 +68,7 @@ const CARD_DATA = [
       'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
       'Mint Trail (NFT)',
     ],
-    color:'#883a53'
-
+    color: '#883a53',
   },
   {
     title: 'Tour Operators',
@@ -82,8 +81,7 @@ const CARD_DATA = [
       'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
       'Mint Trail (NFT)',
     ],
-    color:'#ba9d0b'
-
+    color: '#ba9d0b',
   },
   {
     title: 'Shared Bike Operators',
@@ -96,8 +94,7 @@ const CARD_DATA = [
       'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
       'Mint Trail (NFT)',
     ],
-    color:'#ff4d00'
-
+    color: '#ff4d00',
   },
 ];
 

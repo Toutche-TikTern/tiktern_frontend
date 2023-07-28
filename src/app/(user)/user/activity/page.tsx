@@ -7,7 +7,7 @@ const ActivityPage = () => {
     <main className="flex-1">
       <UserNavbar title="Manage Activities" />
       {/* Dummy  ---USER ACTIVITIES---*/}
-      <div className='bg-white'>
+      <div className="bg-white">
         <LiveActivitiesTable />
       </div>
     </main>
