@@ -4,7 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
-import { FaRunning } from 'react-icons/fa';
 import { MdArchive, MdSpaceDashboard } from 'react-icons/md';
 import { useSelector } from 'react-redux';
 import { useThemeContext } from '../../contexts/theme.context';

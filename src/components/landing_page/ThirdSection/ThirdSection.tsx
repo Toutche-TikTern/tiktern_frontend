@@ -6,9 +6,7 @@ import Image from 'next/image';
 import React from 'react';
 import TabContainer from './Tabs/TabContainer';
 
-type Props = {};
-
-const ThirdSection = (props: Props) => {
+const ThirdSection = () => {
   return (
     <section className="py-10 ">
       <SectionHeading selected color="#4d69ff" className="mt-10 text-center">

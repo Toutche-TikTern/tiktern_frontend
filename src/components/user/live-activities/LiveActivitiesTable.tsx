@@ -103,7 +103,7 @@ const LiveActivitiesTable = (props: Props) => {
   // todo::: handle activity status if uploaded remove the input form
 
   return (
-    <section className="py-[20px] px-[40px] mt-10">
+    <div className="py-[20px] px-[40px] mt-10">
       <div className="text-2xl font-bold text-app-1">Live Activities</div>
       <hr className="mb-5 border-white/10" />
 
@@ -203,7 +203,7 @@ const LiveActivitiesTable = (props: Props) => {
           </div>
         )}
       </div>
-    </section>
+    </div>
   );
 };
 

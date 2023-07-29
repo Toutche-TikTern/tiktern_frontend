@@ -15,9 +15,7 @@ import {
   SigninButton,
 } from './Navbar.styled';
 
-type Props = {};
-
-const GlobalNavbar = (props: Props) => {
+const GlobalNavbar = () => {
   const [isAuth, setIsAuth] = useState<
     string | null | undefined | CookieValueTypes
   >('');

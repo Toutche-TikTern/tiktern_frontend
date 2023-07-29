@@ -9,10 +9,7 @@ import {
 import Image from 'next/image';
 import React from 'react';
 
-type Props = {};
-
-const HeroSection = (props: Props) => {
-  console.log(fontSize);
+const HeroSection = () => {
   return (
     <section className="relative py-10">
       <BigHeading selected color="#252525" className="text-center">
