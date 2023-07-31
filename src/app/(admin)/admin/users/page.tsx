@@ -50,7 +50,7 @@ const ManageUsersPage = () => {
                       item.activities.length > 0
                         ? // @ts-ignore
                           item.activities.map((i, ind) => {
-                            const photo = `http://localhost:1999/uploads/${i?.image_proof}`;
+                            const photo = `https://tiktern-server.onrender.com/uploads/${i?.image_proof}`;
                             return (
                               <div key={ind} className="flex ">
                                 {/* @ts-ignore */}

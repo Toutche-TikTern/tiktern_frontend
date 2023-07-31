@@ -4,7 +4,9 @@ import axios from 'axios';
 // without cookies unprotected requests
 export const axiosClient = axios.create();
 
-axiosClient.defaults.baseURL = 'http://localhost:1999/api/v1';
+// https://tiktern-server.onrender.com
+// http://localhost:1999/api/v1
+axiosClient.defaults.baseURL = 'https://tiktern-server.onrender.com/api/v1';
 axiosClient.defaults.withCredentials = true;
 axiosClient.defaults.headers = {
   'Content-Type': 'application/json',
