@@ -1,8 +1,11 @@
 // @ts-nocheck
 import axios from 'axios';
+import { getCookie } from 'cookies-next';
 
 // without cookies unprotected requests
 export const axiosClient = axios.create();
+
+const token = getCookie('token');
 
 // https://tiktern-server.onrender.com
 // http://localhost:1999/api/v1
@@ -11,10 +14,11 @@ axiosClient.defaults.withCredentials = true;
 axiosClient.defaults.headers = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
+  Authorization: `Bearer ${token}`,
 };
 
 //All request will wait 4 seconds before timeout
-axiosClient.defaults.timeout = 50000;
+axiosClient.defaults.timeout = 150000;
 
 axiosClient.defaults.withCredentials = true;
 
