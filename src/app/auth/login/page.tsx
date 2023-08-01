@@ -33,11 +33,11 @@ const LoginPage: NextPage = () => {
 
   // run useEffect when user is login
   useEffect(() => {
-    if (userToken && success) {
+    if (isLoading) {
       // @ts-ignore
       dispatch(fetchCurrentUser());
     }
-  }, [success, userToken, dispatch]);
+  }, [dispatch, isLoading]);
 
   const canSave = [validPassword, state.email].every(Boolean);
   useEffect(() => {
