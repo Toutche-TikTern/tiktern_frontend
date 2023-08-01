@@ -8,7 +8,7 @@ import TabContainer from './Tabs/TabContainer';
 
 const ThirdSection = () => {
   return (
-    <section className="py-10 ">
+    <section className="py-10 px-[10px]">
       <SectionHeading selected color="#4d69ff" className="mt-10 text-center">
         Tokenomics
       </SectionHeading>
@@ -93,7 +93,7 @@ const ThirdSection = () => {
       </div>
 
       {/* -------------------------------------------- */}
-      <div className="flex flex-col items-center justify-center mt-16">
+      <div className="flex flex-col items-center justify-center mt-16 ">
         <div className="text-3xl text-black/80">
           FM club has 9999 seats only
         </div>
@@ -105,7 +105,7 @@ const ThirdSection = () => {
       </div>
 
       {/* -------------------------------------------- */}
-      <div className="flex px-[20%] gap-5 mt-10 items-center">
+      <div className="flex flex-col lg:flex-row px-[20%] gap-5 mt-10 items-center">
         <div className="flex flex-col items-center justify-center text-center">
           <Image
             alt="tiktern"
