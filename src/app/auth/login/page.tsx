@@ -1,6 +1,8 @@
 'use client';
 import { loginUser } from '@/store/features/auth/authSlice';
 import { fetchCurrentUser } from '@/store/features/userSlice';
+import { axiosClient } from '@/utils/axiosInstance';
+import { setCookie } from 'cookies-next';
 import { NextPage } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -27,6 +29,7 @@ const LoginPage: NextPage = () => {
     email: '',
     password: '',
   });
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   // run useEffect when user is login
   useEffect(() => {
@@ -49,17 +52,34 @@ const LoginPage: NextPage = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
     console.log('CLIENT STATE:: ', state);
     try {
       if (canSave) {
         // do stuff
-        const data = {
+        // const data = {
+        //   email: state.email,
+        //   password: state.password,
+        //   router,
+        // };
+        // @ts-ignore
+        // dispatch(loginUser(data));
+        const { data: user } = await axiosClient.post(`/auth/login`, {
           email: state.email,
           password: state.password,
-          router,
-        };
-        // @ts-ignore
-        dispatch(loginUser(data));
+        });
+        // setCookie('token', user?.access_token);
+        setCookie('role', user?.roles[0]);
+        setCookie('token', user?.access_token);
+        localStorage.setItem('token', user?.access_token);
+        setIsLoading(false);
+        if (user?.roles.includes('admin')) {
+          router.push('/admin');
+          console.log('go admin');
+        } else {
+          router.push('/user');
+          console.log('go user');
+        }
       }
     } catch (error) {
       console.log(error);
@@ -107,7 +127,7 @@ const LoginPage: NextPage = () => {
           className="text-white bg-blue-600 hover:drop-shadow-lg h-[60px] w-[400px] rounded-lg  text-[16px]  px-5"
           disabled={loading}
         >
-          {loading ? 'Signing In...' : 'Sign In'}
+          {isLoading ? 'Signing In...' : 'Sign In'}
         </button>
       </form>
       <div className="mt-10 text-sm text-gray-400">
