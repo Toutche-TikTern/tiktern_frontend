@@ -26,8 +26,10 @@ export const loginUser = createAsyncThunk(
       localStorage.setItem('token', user?.access_token);
       if (user?.roles.includes('admin')) {
         router.push('/admin');
+        console.log('go admin');
       } else {
         router.push('/user');
+        console.log('go user');
       }
       return user;
     } catch (error) {

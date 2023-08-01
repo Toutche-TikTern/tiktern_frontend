@@ -6,12 +6,13 @@ import PROTECTED_ROUTES from './constant/protectedRoutes';
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const isLogin = request.cookies.get('access_token');
+  const token = localStorage.getItem('token');
   const userRole = request.cookies.get('role')?.value;
   // console.log(userRole);
   const isProtected = PROTECTED_ROUTES.some((value) =>
     url.pathname.includes(value)
   );
-  if (!isLogin) {
+  if (!isLogin || !token) {
     if (isProtected) {
       url.pathname = '/auth/login';
       return NextResponse.redirect(url);
