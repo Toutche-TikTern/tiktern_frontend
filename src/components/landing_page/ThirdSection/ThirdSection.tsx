@@ -37,7 +37,7 @@ const ThirdSection = () => {
           months and vest in the following fashion
         </p>
         {/* <-------   Section   ----------> */}
-        <div className="flex divide-x w-[50%] mt-10">
+        <div className="flex divide-x w-[100%] lg:w-[50%] mt-10">
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
             <h1 className="text-3xl font-bold">25%</h1>
             <p className="text-gray-500">at the end of 12 months</p>
@@ -45,7 +45,7 @@ const ThirdSection = () => {
 
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
             <h1 className="text-3xl font-bold">6.25%</h1>
-            <p className="w-[40%] text-gray-500">
+            <p className="w-[90%] lg:w-[40%] text-gray-500">
               Thereafter at the end of every quarter for 12 quarters
             </p>
           </div>
@@ -75,18 +75,18 @@ const ThirdSection = () => {
       </div>
 
       {/* Foundation member fm club */}
-      <div className="flex flex-col items-center justify-center mt-16">
-        <div className="text-3xl text-appColor3">
+      <div className="flex flex-col items-center justify-center mt-16 ">
+        <div className="text-3xl text-center text-appColor3">
           Foundation Members (FM) Club
         </div>
-        <p className="px-[20%] mt-5 text-gray-600 text-center">
+        <p className="lg:px-[20%] mt-5 text-gray-600 text-center">
           TikTern Foundation Members (FM) club will play a hands-on role, in
           laying the foundational blocks of the network and inherit an exclusive
           set of privileges in return.
         </p>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 w-md:[40%] h-[40px] px-10 mt-10 !bg-app-2"
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[40px] px-10 mt-10 !bg-app-2"
         >
           Become the Foundation Member! Join the Whitelist Now
         </Button>
@@ -243,7 +243,7 @@ const ThirdSection = () => {
             />
             <Button
               variant="contained"
-              className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto !bg-app-2"
+              className="text-white rounded-full bg-appColor2 hover:bg-appColor3  h-[60px] px-10 mt-10 mx-auto !bg-app-2"
             >
               Become the Foundation Member! Join the Whitelist Now
             </Button>

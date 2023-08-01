@@ -15,7 +15,7 @@ const HeroSection = () => {
       <BigHeading selected color="#252525" className="text-center">
         Rider centric, Social Platform for Cycling
       </BigHeading>
-      <div className="flex justify-center w-full gap-5 mt-5">
+      <div className="flex flex-col items-center justify-center w-full gap-5 mt-5 lg:flex-row">
         <div className="flex items-center gap-3">
           <MaskIcon
             id="cycle"
@@ -70,13 +70,13 @@ const HeroSection = () => {
       <SectionHeading
         selected
         color="#d830dc"
-        className="text-center mx-auto w-[40%] mt-8"
+        className="text-center mx-auto lg:w-[40%] mt-8"
       >
         TikTern’s mission is to get more people onto bikes & ebikes and help
         build a better world around us.
       </SectionHeading>
 
-      <Para className="text-center mx-auto w-[60%] mt-8 text-gray-600">
+      <Para className="text-justify mx-auto  w-[90%]  lg:w-[60%] mt-8 text-gray-600">
         The features are shaped after extensive, ground-up research with
         cyclists, cycling communities and industry professionals. It is
         purpose-built to serve individuals, groups, and cycling clubs, making
@@ -84,16 +84,16 @@ const HeroSection = () => {
       </Para>
 
       <div className="flex items-center justify-center w-[35%] mx-auto gap-[40px] mt-10">
-        <div className="text-[#4d69ff] text-[1.5rem] text-center w-1/2">
+        <div className="text-[#4d69ff] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
           Healthy <br /> Lifestyles
         </div>
-        <div className="text-[#04ec1b] text-[1.5rem] text-center w-1/2">
+        <div className="text-[#04ec1b] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
           Cleaner <br /> Air
         </div>
-        <div className="text-[#d830dc] text-[1.5rem] text-center w-1/2">
+        <div className="text-[#d830dc] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
           Reduced <br /> Congestion
         </div>
-        <div className="text-[#ff4d00] text-[1.5rem] text-center w-1/2">
+        <div className="text-[#ff4d00] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
           Happy <br /> People
         </div>
       </div>

@@ -5,7 +5,7 @@ type Props = {};
 
 const TabTwo = (props: Props) => {
   return (
-    <div className="flex  justify-center w-[70%] mx-auto gap-10  mt-10">
+    <div className="flex  justify-center w-[100%] lg:w-[70%] mx-auto gap-10  mt-10">
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
         <Image alt="TikTern" src="/imgs/coins-2.png" width={200} height={200} />
         <div className="text-center">

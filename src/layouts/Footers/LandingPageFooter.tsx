@@ -13,7 +13,7 @@ const LandingPageFooter = (props: Props) => {
   const date = new Date().getFullYear();
   return (
     <footer className="flex flex-col items-center justify-center mt-28">
-      <h1 className="text-2xl text-center w-[50%]">
+      <h1 className="text-2xl text-center w-[90%] lg:w-[50%]">
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
       </h1>
@@ -23,7 +23,7 @@ const LandingPageFooter = (props: Props) => {
           src="/imgs/foo.png"
           width={800}
           height={200}
-          className=""
+          className="hidden lg:block"
         />
       </div>
       <div className="flex items-center gap-5 mt-10">

@@ -11,7 +11,7 @@ const FoundingTeam = (props: Props) => {
         Founding Team
       </div>
       {/* Image cards */}
-      <div className="flex items-center justify-center w-full gap-5 mt-20">
+      <div className="flex flex-col items-center justify-center w-full gap-5 mt-20 md:flex-row">
         <div className="p-5 border rounded-3xl">
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image

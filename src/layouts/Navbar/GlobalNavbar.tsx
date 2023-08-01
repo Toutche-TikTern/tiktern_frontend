@@ -9,7 +9,6 @@ import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import {
   IconsWrapper,
-  NavCol1,
   NavCol2,
   NavbarContainer,
   SigninButton,
@@ -45,16 +44,15 @@ const GlobalNavbar = () => {
 
   return (
     <NavbarContainer height={navbarHeight}>
-      <NavCol1>
+      <div className="w-[120px] h-[50px] lg:w-[120px] lg:h-[60px]  relative">
         <Image
           src={`/logos/tik_logo-black.svg`}
           alt="TikTern Logo"
-          className="object-contain"
+          className="object-contain "
           // sizes="200px"
-          width={150}
-          height={30}
+          fill
         />
-      </NavCol1>
+      </div>
       <NavCol2>
         <IconsWrapper>
           {SOCIAL_ICONS.map((icon, index) => (

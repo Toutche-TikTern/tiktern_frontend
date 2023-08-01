@@ -49,7 +49,7 @@ const TabContainer = (props: Props) => {
   return (
     <Box sx={{ width: '100%' }}>
       <div className="flex justify-center w-full">
-        <Box sx={{ width: '15%' }}>
+        <Box className="w-[50%] lg:w-[30%]">
           <Tabs
             value={value}
             onChange={handleChange}

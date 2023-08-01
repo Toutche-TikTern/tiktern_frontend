@@ -1,5 +1,6 @@
 'use client';
 
+import { WIDTH } from '@/constant/screenResolutions';
 import styled from 'styled-components';
 
 // Tiktern is For Section
@@ -8,6 +9,9 @@ export const CardContainer = styled.div`
   gap: 10px;
   padding-right: 10%;
   padding-left: 10%;
+  @media (max-width: ${WIDTH.mobileMax}) {
+    flex-direction: column;
+  }
 `;
 
 export const TikternIsForCard = styled.div`
@@ -21,5 +25,8 @@ export const TikternIsForCard = styled.div`
 
   ul {
     list-style: outside circle;
+  }
+  @media (max-width: ${WIDTH.mobileMax}) {
+    width: 100%;
   }
 `;

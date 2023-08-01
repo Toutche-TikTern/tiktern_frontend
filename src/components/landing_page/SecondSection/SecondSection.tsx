@@ -15,7 +15,7 @@ const SecondSection = (props: Props) => {
       <CardContainer>
         {CARD_DATA.map((item, index) => (
           <TikternIsForCard key={index} color={item.color}>
-            <div className="text-center text-xl mb-5">{item.title}</div>
+            <div className="mb-5 text-xl text-center">{item.title}</div>
             <div>
               <ul className="text-sm">
                 {item.desc.map((list, i) => (
@@ -27,7 +27,7 @@ const SecondSection = (props: Props) => {
         ))}
       </CardContainer>
       {/* Section 2 */}
-      <Para className="mx-auto text-center w-[60%] mt-16 text-gray-600">
+      <Para className="mx-auto text-justify w-[90%] lg:w-[60%] mt-16 text-gray-600">
         Unlike other Apps that monetise user-generated content, TikTern is a
         rider-powered (Web3) economy where riders own the content, activities,
         events they create and decide on its monetisation. Monetary transactions
@@ -35,7 +35,7 @@ const SecondSection = (props: Props) => {
         Tokens - Tik & Tern.
       </Para>
 
-      <SectionHeading className="mx-auto text-center w-[60%] mt-16 text-gray-800 font-light">
+      <SectionHeading className="mx-auto text-justify w-[90%] lg:w-[60%] mt-16 text-gray-800 font-light">
         It pays to ride on TikTern. All one needs is a TikTern Bike (virtual
         bicycle), to download the App and start riding to earn Tik tokens!
       </SectionHeading>
