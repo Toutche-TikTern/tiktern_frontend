@@ -92,7 +92,7 @@ const ThirdSection = () => {
         </p>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[40px] px-10 mt-10 !bg-app-2"
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[40px] px-10 !mt-10 !bg-app-2"
         >
           Become the Foundation Member! Join the Whitelist Now
         </Button>
@@ -229,7 +229,7 @@ const ThirdSection = () => {
         </div>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max max-h-max  px-10 mt-10 mx-auto !bg-app-2"
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max max-h-max  px-10 !mt-10 mx-auto !bg-app-2"
         >
           Join the Whitelist Now
         </Button>
