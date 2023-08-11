@@ -12,7 +12,7 @@ import React from 'react';
 const HeroSection = () => {
   return (
     <section className="relative flex items-center justify-center w-full lg:h-screen max-h-max">
-      <div className="mt-0 md:mt-[-100px]">
+      <div className="mt-0 ">
         <BigHeading selected color="#252525" className="text-center">
           Rider centric, Social Platform for Cycling
         </BigHeading>
@@ -63,7 +63,7 @@ const HeroSection = () => {
           height={400}
           className="object-cover object-center mx-auto"
         />
-        <SectionHeading className="mt-5 font-light text-center">
+        <SectionHeading className="px-5 mt-5 font-light text-center">
           Get on the Bike, and
           <span className="text-[#04ec1b] font-semibold drop-shadow-sm">
             {' '}
