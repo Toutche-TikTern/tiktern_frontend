@@ -35,10 +35,10 @@ const SecondSection = (props: Props) => {
         Tokens - Tik & Tern.
       </Para>
 
-      <SectionHeading className="mx-auto text-justify w-[90%] lg:w-[60%] mt-16 text-gray-800 font-light">
+      <p className="mx-auto text-justify w-[90%] lg:w-[60%]  font-bold   text-black/80 mt-5">
         It pays to ride on TikTern. All one needs is a TikTern Bike (virtual
         bicycle), to download the App and start riding to earn Tik tokens!
-      </SectionHeading>
+      </p>
     </section>
   );
 };

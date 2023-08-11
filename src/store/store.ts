@@ -2,6 +2,7 @@
 
 import { configureStore } from '@reduxjs/toolkit';
 import authReducer from './features/auth/authSlice';
+import togglesReducer from './features/togglesSlice';
 import userReducer from './features/userSlice';
 
 export const makeStore = () =>
@@ -9,6 +10,7 @@ export const makeStore = () =>
     reducer: {
       user: userReducer,
       auth: authReducer,
+      toggles: togglesReducer,
     },
     devTools: true,
   });

@@ -1,5 +1,6 @@
 'use client';
 import SidebarLink from '@/components/user/SidebarLink';
+import { SidebarContainer } from '@/styles/styled_components/layouts/DashboardWrapper.styled';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -16,6 +17,7 @@ interface USER {
 
 const AdminDashSidebar = () => {
   const { setThemeMode, themeMode } = useThemeContext();
+  const isSidebarOpen = useSelector((state: any) => state.toggles.sidebar);
   const [user, setUser] = useState<USER | null>({});
   // @ts-ignore
   const { loading, success, userInfo } = useSelector((state) => state.user);
@@ -26,7 +28,10 @@ const AdminDashSidebar = () => {
     }
   }, [success]);
   return (
-    <aside className="w-[300px]  h-screen relative drop-shadow-xl bg-dark-800">
+    <SidebarContainer
+      open={isSidebarOpen}
+      className="drop-shadow-xl !bg-dark-800"
+    >
       {/* logo */}
       <div className="flex items-center justify-center h-[15vh]">
         <Link href={'/'}>
@@ -82,7 +87,7 @@ const AdminDashSidebar = () => {
           {themeMode ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
         </label>
       </div>
-    </aside>
+    </SidebarContainer>
   );
 };
 

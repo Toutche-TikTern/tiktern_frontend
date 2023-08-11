@@ -13,7 +13,7 @@ const LandingPageFooter = (props: Props) => {
   const date = new Date().getFullYear();
   return (
     <footer className="flex flex-col items-center justify-center mt-28">
-      <h1 className="text-2xl text-center w-[90%] lg:w-[50%]">
+      <h1 className="text-xl text-black/80  w-[90%] lg:w-[50%] text-justify lg:text-center">
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
       </h1>
@@ -26,7 +26,7 @@ const LandingPageFooter = (props: Props) => {
           className="hidden lg:block"
         />
       </div>
-      <div className="flex items-center gap-5 mt-10">
+      <div className="flex items-center gap-5 mt-[100px]">
         <TwitterIcon className="w-[30px] h-[30px] hover:text-appColor3 text-gray-500 cursor-pointer" />
         <TelegramIcon className="w-[30px] h-[30px] hover:text-appColor3 text-gray-500 cursor-pointer" />
         <InstagramIcon className="w-[30px] h-[30px] hover:text-appColor3 text-gray-500 cursor-pointer" />

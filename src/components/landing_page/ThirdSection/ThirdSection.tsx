@@ -9,7 +9,11 @@ import TabContainer from './Tabs/TabContainer';
 const ThirdSection = () => {
   return (
     <section className="py-10 px-[10px]">
-      <SectionHeading selected color="#4d69ff" className="mt-10 text-center">
+      <SectionHeading
+        selected
+        color="#4d69ff"
+        className="mt-[100px] text-center"
+      >
         Tokenomics
       </SectionHeading>
       <div className="flex justify-center mt-10 w-ful">
@@ -22,7 +26,7 @@ const ThirdSection = () => {
         <span className="underline decoration-appColor4">NFT&apos;s</span> can
         be exchanged for other crypto tokens or traded
       </div>
-      <SectionHeading className="mt-16 mb-5 text-center text-appColor3">
+      <SectionHeading className="mt-20 mb-5 text-center text-appColor3">
         TERN Token <br /> Distribution & Vesting
       </SectionHeading>
       <div className="flex flex-col items-center w-full">
@@ -40,18 +44,20 @@ const ThirdSection = () => {
         <div className="flex divide-x w-[100%] lg:w-[50%] mt-10">
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
             <h1 className="text-3xl font-bold">25%</h1>
-            <p className="text-gray-500">at the end of 12 months</p>
+            <p className="text-xs text-gray-500 lg:text-base">
+              at the end of 12 months
+            </p>
           </div>
 
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
             <h1 className="text-3xl font-bold">6.25%</h1>
-            <p className="w-[90%] lg:w-[40%] text-gray-500">
+            <p className="w-[90%] lg:w-[40%] text-gray-500 text-xs lg:text-base">
               Thereafter at the end of every quarter for 12 quarters
             </p>
           </div>
         </div>
         {/* <-------   Section   ----------> */}
-        <section className="flex flex-col items-center w-full mt-16">
+        <section className="flex flex-col items-center w-full mt-[100px]">
           <div className="w-[70%] border-2 border-appColor2 rounded-xl h-[220px] flex flex-col gap-3 justify-center items-center">
             <h1 className="text-2xl text-center">
               The{' '}
@@ -75,11 +81,11 @@ const ThirdSection = () => {
       </div>
 
       {/* Foundation member fm club */}
-      <div className="flex flex-col items-center justify-center mt-16 ">
-        <div className="text-3xl text-center text-appColor3">
+      <div className="flex flex-col items-center justify-center mt-[100px] ">
+        <div className="text-2xl text-center lg:text-3xl text-black/80 mt-[100px] font-bold">
           Foundation Members (FM) Club
         </div>
-        <p className="lg:px-[20%] mt-5 text-gray-600 text-center">
+        <p className="lg:px-[20%] mt-5 text-gray-600 text-sm lg:text-lg text-center">
           TikTern Foundation Members (FM) club will play a hands-on role, in
           laying the foundational blocks of the network and inherit an exclusive
           set of privileges in return.
@@ -94,10 +100,10 @@ const ThirdSection = () => {
 
       {/* -------------------------------------------- */}
       <div className="flex flex-col items-center justify-center mt-16 ">
-        <div className="text-3xl text-black/80">
+        <div className="text-2xl text-center lg:text-3xl text-black/80 mt-[100px] font-bold">
           FM club has 9999 seats only
         </div>
-        <p className="px-[20%] mt-5 text-gray-600 text-center">
+        <p className="text-sm lg:text-lg lg:px-[20%] mt-5 text-gray-600 text-center">
           Join the Whitelist to be invited to the FM Club launch event and mint
           your Foundation Member NFT. The FM Club launch date will be announced
           soon.
@@ -223,7 +229,7 @@ const ThirdSection = () => {
         </div>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max h-[40px] px-10 mt-10 mx-auto !bg-app-2"
+          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max max-h-max  px-10 mt-10 mx-auto !bg-app-2"
         >
           Join the Whitelist Now
         </Button>
@@ -243,7 +249,7 @@ const ThirdSection = () => {
             />
             <Button
               variant="contained"
-              className="text-white rounded-full bg-appColor2 hover:bg-appColor3  h-[60px] px-10 mt-10 mx-auto !bg-app-2"
+              className="text-white rounded-full bg-appColor2 hover:bg-appColor3  max-h-max px-10 mt-10 mx-auto !bg-app-2"
             >
               Become the Foundation Member! Join the Whitelist Now
             </Button>
@@ -252,7 +258,9 @@ const ThirdSection = () => {
 
         {/* ------------------------------- */}
       </div>
-      <div className="mt-20 text-2xl text-center text-appColor3">Roadmap</div>
+      <div className="mt-[200px] text-2xl font-bold text-center lg:text-3xl text-appColor3">
+        Roadmap
+      </div>
       <div className="flex justify-center w-full mt-10">
         <Image
           alt=""

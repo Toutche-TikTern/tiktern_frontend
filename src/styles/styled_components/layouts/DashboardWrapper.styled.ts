@@ -10,4 +10,15 @@ const DashboardWrapper = styled.main`
   position: relative;
 `;
 
+export const SidebarContainer = styled.div<{ open: boolean }>`
+  width: 300px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: ${({ open }) => (open ? '0' : '-300px')};
+  transition: left 0.3s ease;
+  /* background-color: #f0f0f0; */
+  z-index: 10000;
+`;
+
 export default DashboardWrapper;

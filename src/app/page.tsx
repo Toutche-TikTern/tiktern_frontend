@@ -7,13 +7,15 @@ import GlobalNavbar from '@/layouts/Navbar/GlobalNavbar';
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative ">
       <GlobalNavbar />
-      <HeroSection />
-      <SecondSection />
-      <ThirdSection />
-      <FoundingTeam />
-      <LandingPageFooter />
+      <div className="p-[20px]">
+        <HeroSection />
+        <SecondSection />
+        <ThirdSection />
+        <FoundingTeam />
+        <LandingPageFooter />
+      </div>
     </div>
   );
 }

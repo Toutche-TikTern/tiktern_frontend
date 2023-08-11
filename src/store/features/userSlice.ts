@@ -66,7 +66,7 @@ const userSlice = createSlice({
     });
     builder.addCase(fetchCurrentUser.fulfilled, (state, { payload }) => {
       if (payload?.success) {
-        state.userInfo = payload.user;
+        state.userInfo = payload?.user;
         state.success = true;
         state.loading = false;
         state.error = null;
@@ -74,7 +74,7 @@ const userSlice = createSlice({
         state.userInfo = {};
         state.success = false;
         state.loading = false;
-        state.error = payload.message;
+        state.error = payload?.message;
       }
     });
     builder.addCase(fetchCurrentUser.rejected, (state, { error }) => {
