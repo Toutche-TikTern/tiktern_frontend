@@ -16,7 +16,7 @@ const FoundingTeam = (props: Props) => {
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image
               alt="tiktern"
-              src="/imgs/raghu.jpeg"
+              src="/imgs/raghuu.png"
               fill
               className="object-cover object-center rounded-2xl"
             />
@@ -28,7 +28,7 @@ const FoundingTeam = (props: Props) => {
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image
               alt="tiktern"
-              src="/imgs/satya.jpeg"
+              src="/imgs/satyaa.png"
               fill
               className="object-cover object-center rounded-2xl"
             />
@@ -40,7 +40,7 @@ const FoundingTeam = (props: Props) => {
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image
               alt="tiktern"
-              src="/imgs/abhishek.jpeg"
+              src="/imgs/abhishekk.png"
               fill
               className="object-cover object-center rounded-2xl"
             />
@@ -55,7 +55,7 @@ const FoundingTeam = (props: Props) => {
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image
               alt="tiktern"
-              src="/imgs/aa.jpeg"
+              src="/imgs/ayann.png"
               fill
               className="object-cover object-center rounded-2xl"
             />
