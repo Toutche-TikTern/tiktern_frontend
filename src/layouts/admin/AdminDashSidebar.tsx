@@ -50,7 +50,7 @@ const AdminDashSidebar = () => {
           <h1 className="text-3xl text-black/80">
             {user && user.fname
               ? user.fname.replace(/\W*(\w)\w*/g, '$1').toUpperCase()
-              : '😀'}
+              : ':)'}
           </h1>
           <div className="absolute text-[10px] top-[0px] right-[-10px] bg-rose-500 text-white/90 p-[3px] rounded-full drop-shadow">
             Admin
