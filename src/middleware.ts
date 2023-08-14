@@ -11,7 +11,6 @@ export function middleware(request: NextRequest) {
   const isProtected = PROTECTED_ROUTES.some((value) =>
     url.pathname.includes(value)
   );
-  console.log('heyyyy', !isLogin);
   if (!isLogin) {
     if (isProtected) {
       url.pathname = '/auth/login';

@@ -38,7 +38,9 @@ const GlobalNavbar = () => {
   }, [navbarHeight]);
 
   useEffect(() => {
-    setIsAuth(checkRole());
+    if (isAuth !== null && isAuth !== undefined) {
+      setIsAuth(checkRole());
+    }
     console.log(isAuth);
   }, [isAuth]);
 
