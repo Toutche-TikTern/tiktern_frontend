@@ -12,7 +12,7 @@ type Props = {};
 const LandingPageFooter = (props: Props) => {
   const date = new Date().getFullYear();
   return (
-    <footer className="flex flex-col items-center justify-center mt-28">
+    <div className="flex flex-col items-center justify-center mt-28">
       <h1 className="text-xl text-black/80  w-[90%] lg:w-[50%] text-justify lg:text-center">
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
@@ -35,7 +35,7 @@ const LandingPageFooter = (props: Props) => {
       <div className="mt-5 mb-5 text-xs text-center text-gray-400">
         COPYRIGHT {date} @TOUTCHE. ALL RIGHTS RESERVED.
       </div>
-    </footer>
+    </div>
   );
 };
 
