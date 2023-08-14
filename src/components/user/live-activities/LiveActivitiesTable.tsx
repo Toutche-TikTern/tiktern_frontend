@@ -80,7 +80,7 @@ const LiveActivitiesTable = (props: Props) => {
           console.log('token', token);
           try {
             const res = await axios.patch(
-              'http://localhost:1999/api/v1/activity/image',
+              'https://tiktern-backend.azurewebsites.net/api/v1/activity/image',
               formData,
               {
                 headers: {
