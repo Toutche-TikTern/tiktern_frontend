@@ -5,12 +5,13 @@ import PROTECTED_ROUTES from './constant/protectedRoutes';
 // This function can be marked `async` if using `await` inside
 export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
-  const isLogin = request.cookies.get('token');
+  const isLogin = request.cookies.get('token')?.value;
   const userRole = request.cookies.get('role')?.value;
   // console.log(userRole);
   const isProtected = PROTECTED_ROUTES.some((value) =>
     url.pathname.includes(value)
   );
+  console.log('heyyyy', !isLogin);
   if (!isLogin) {
     if (isProtected) {
       url.pathname = '/auth/login';
