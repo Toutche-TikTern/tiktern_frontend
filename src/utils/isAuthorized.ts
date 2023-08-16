@@ -1,3 +1,4 @@
+'use client';
 import { getCookie, hasCookie } from 'cookies-next';
 
 const isAuthorized = (...roles: string[]) => {
