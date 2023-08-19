@@ -23,7 +23,7 @@ export const loginUser = createAsyncThunk(
       });
       // setCookie('token', user?.access_token);
       setCookie('role', user?.roles[0]);
-      localStorage.setItem('token', user?.access_token);
+      // localStorage.setItem('token', user?.access_token);
       if (user?.roles.includes('admin')) {
         router.push('/admin');
         console.log('go admin');

@@ -1,3 +1,4 @@
+import NextAuthSessionProvider from '@/config/NextAuthSessionProvider';
 import { ThemeContextProvider } from '@/contexts/theme.context';
 import ReduxProvider from '@/store/ReduxProvider';
 import '../styles/globals.scss';
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html>
       <body>
-        <ReduxProvider>
-          <ThemeContextProvider>{children}</ThemeContextProvider>
-        </ReduxProvider>
+        <NextAuthSessionProvider>
+          <ReduxProvider>
+            <ThemeContextProvider>{children}</ThemeContextProvider>
+          </ReduxProvider>
+        </NextAuthSessionProvider>
       </body>
     </html>
   );

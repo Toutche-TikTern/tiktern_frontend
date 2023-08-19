@@ -1,21 +1,20 @@
-import { logoutUser } from '@/store/features/auth/authSlice';
 import { toggleSidebar } from '@/store/features/togglesSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';
 import MenuIcon from '@mui/icons-material/Menu';
 import { IconButton, Tooltip } from '@mui/material';
-import { useRouter } from 'next/navigation';
+import { deleteCookie } from 'cookies-next';
+import { signOut } from 'next-auth/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const AdminHeader = ({ title }: { title: string }) => {
   const isSidebarOpen = useSelector((state: any) => state.toggles.sidebar);
   const dispatch = useDispatch();
-  const router = useRouter();
   const handleLogout = () => {
-    // @ts-ignore
-    dispatch(logoutUser({ router }));
-    // console.log('logout');
+    signOut();
+    localStorage.clear();
+    deleteCookie('token');
   };
 
   const handleSidebar = () => {
