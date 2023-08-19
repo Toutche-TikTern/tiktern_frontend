@@ -1,3 +1,4 @@
+'use client';
 import { toggleSidebar } from '@/store/features/togglesSlice';
 import CloseIcon from '@mui/icons-material/Close';
 import LogoutIcon from '@mui/icons-material/Logout';

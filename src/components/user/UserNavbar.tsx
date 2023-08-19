@@ -1,3 +1,4 @@
+'use client';
 import NavTikTern from '@/layouts/Navbar/NavTikTern';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { IconButton, Tooltip } from '@mui/material';

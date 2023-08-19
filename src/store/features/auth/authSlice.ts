@@ -1,3 +1,4 @@
+'use client';
 // @ts-nocheck
 import { axiosClient } from '@/utils/axiosInstance';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
@@ -138,7 +139,7 @@ const authSlice = createSlice({
       state.error = null;
       state.loading = false;
       state.userToken = null;
-      deleteCookie();
+      deleteCookie('token');
     });
     builder.addCase(logoutUser.rejected, (state, { payload }) => {
       state.error = payload.message;
