@@ -7,7 +7,7 @@ import { signOut } from 'next-auth/react';
 
 const UserNavbar = ({ title }: { title: string }) => {
   const handleLogout = () => {
-    signOut();
+    signOut({ callbackUrl: '/auth/login' });
     deleteCookie('token');
     localStorage.removeItem('token');
   };

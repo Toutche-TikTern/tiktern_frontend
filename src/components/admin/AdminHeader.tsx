@@ -13,7 +13,7 @@ const AdminHeader = ({ title }: { title: string }) => {
   const isSidebarOpen = useSelector((state: any) => state.toggles.sidebar);
   const dispatch = useDispatch();
   const handleLogout = () => {
-    signOut();
+    signOut({ callbackUrl: '/auth/login' });
     if (typeof window !== 'undefined') {
       localStorage.clear();
     }
