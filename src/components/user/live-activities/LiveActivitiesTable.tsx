@@ -34,7 +34,7 @@ const LiveActivitiesTable = (props: Props) => {
     setIsLoading(true);
     try {
       const { data } = await axiosClient.get(
-        'http://localhost:1999/api/v1/activity',
+        'https://tiktern-backend.azurewebsites.net/api/v1/activity',
         {
           headers: {
             Authorization: `Bearer ${token}`,

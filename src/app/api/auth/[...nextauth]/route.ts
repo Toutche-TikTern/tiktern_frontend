@@ -16,14 +16,18 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         const { email, password } = credentials as any;
-        const res = await fetch('http://localhost:1999/api/v1/auth/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            email,
-            password,
-          }),
-        });
+        // http://localhost:1999/api/v1/auth/login
+        const res = await fetch(
+          'https://tiktern-backend.azurewebsites.net/api/v1/auth/login',
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              email,
+              password,
+            }),
+          }
+        );
         const user = await res.json();
         // @ts-ignore
         if (res.ok && user) {
