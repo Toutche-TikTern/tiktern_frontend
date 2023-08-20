@@ -11,7 +11,9 @@ const AdminDashboard = () => {
   useEffect(() => {
     const token = session?.user.access_token;
     if (token !== undefined) {
-      localStorage.setItem('token', token);
+      if (typeof window !== 'undefined') {
+        localStorage.setItem('token', token);
+      }
       setCookie('token', token);
     }
   }, [session]);

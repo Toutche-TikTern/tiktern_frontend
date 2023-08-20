@@ -26,7 +26,9 @@ const LiveActivitiesTable = (props: Props) => {
   const [submittedActivities, setSubmittedActivities] = useState<string[]>([]);
   const [uploading, setUploading] = useState<boolean>(false);
 
-  const token = localStorage.getItem('token');
+  if (typeof window !== 'undefined') {
+    var token = localStorage.getItem('token');
+  }
 
   const fetchActivity = async () => {
     setIsLoading(true);
@@ -53,7 +55,7 @@ const LiveActivitiesTable = (props: Props) => {
     setTimeout(() => {
       fetchActivity();
     }, 5000);
-  }, [token]);
+  }, []);
 
   const handleFileChange = (
     e: React.ChangeEvent<HTMLInputElement>,

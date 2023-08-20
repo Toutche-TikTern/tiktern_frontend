@@ -14,7 +14,10 @@ const AdminHeader = ({ title }: { title: string }) => {
   const dispatch = useDispatch();
   const handleLogout = () => {
     signOut();
-    localStorage.clear();
+    if (typeof window !== 'undefined') {
+      localStorage.clear();
+    }
+
     deleteCookie('token');
   };
 
