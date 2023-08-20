@@ -16,7 +16,7 @@ axiosClient.defaults.withCredentials = true;
 axiosClient.defaults.headers = {
   'Content-Type': 'application/json',
   Accept: 'application/json',
-  Authorization: `Bearer ${token !== undefined && token}`,
+  Authorization: `Bearer ${token}`,
 };
 
 //All request will wait 4 seconds before timeout
