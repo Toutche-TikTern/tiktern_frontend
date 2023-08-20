@@ -1,18 +1,15 @@
+'use client';
 import NavTikTern from '@/layouts/Navbar/NavTikTern';
-import { logoutUser } from '@/store/features/auth/authSlice';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { IconButton, Tooltip } from '@mui/material';
-import { useRouter } from 'next/navigation';
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import { deleteCookie } from 'cookies-next';
+import { signOut } from 'next-auth/react';
 
 const UserNavbar = ({ title }: { title: string }) => {
-  const dispatch = useDispatch();
-  const router = useRouter();
   const handleLogout = () => {
-    // @ts-ignore
-    dispatch(logoutUser({ router }));
-    // console.log('logout');
+    signOut({ callbackUrl: '/auth/login' });
+    deleteCookie('token');
+    localStorage.removeItem('token');
   };
 
   return (

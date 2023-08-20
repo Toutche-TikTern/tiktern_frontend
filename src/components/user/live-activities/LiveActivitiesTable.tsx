@@ -13,11 +13,11 @@ type Activity = {
   activity_expiry: string;
   activity_status: string;
 };
-type FileState = {
-  activityId: string;
-  userId: string;
-  file: File | null;
-};
+// type FileState = {
+//   activityId: string;
+//   userId: string;
+//   file: File | null;
+// };
 
 const LiveActivitiesTable = (props: Props) => {
   const [activityData, setActivityData] = useState<Activity[]>([]);
@@ -25,22 +25,36 @@ const LiveActivitiesTable = (props: Props) => {
   const [imageFile, setImageFile] = useState<File[] | null>([]);
   const [submittedActivities, setSubmittedActivities] = useState<string[]>([]);
   const [uploading, setUploading] = useState<boolean>(false);
+
+  if (typeof window !== 'undefined') {
+    var token = localStorage.getItem('token');
+  }
+
   const fetchActivity = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axiosClient.get('/activity');
+      const { data } = await axiosClient.get(
+        'https://tiktern-backend.azurewebsites.net/api/v1/activity',
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setActivityData(data?.activity || []);
       setIsLoading(false);
     } catch (error) {
       console.log('Error in fetching Activity');
     }
   };
-
+  // router.replace(router.asPath);
   // calling in useEffect
   useEffect(() => {
     // fetchUser();
     fetchActivity();
-    // console.log(activityData);
+    setTimeout(() => {
+      fetchActivity();
+    }, 5000);
   }, []);
 
   const handleFileChange = (

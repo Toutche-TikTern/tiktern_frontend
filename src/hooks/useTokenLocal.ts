@@ -7,7 +7,7 @@ const useTokenLocal = () => {
   );
 
   useEffect(() => {
-    localStorage.setItem('token', JSON.stringify(token));
+    localStorage.setItem('token', token);
   }, [token]);
 
   return [token, setToken];

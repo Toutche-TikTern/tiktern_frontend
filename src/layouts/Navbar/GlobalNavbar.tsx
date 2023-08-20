@@ -2,8 +2,7 @@
 
 import SOCIAL_ICONS from '@/constant/socialIcons';
 import { MaskIcon } from '@/styles/styled_components/components/Global.styled';
-import { checkRole } from '@/utils/isAuthorized';
-import { CookieValueTypes } from 'cookies-next';
+import { useSession } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
@@ -15,9 +14,7 @@ import {
 } from './Navbar.styled';
 
 const GlobalNavbar = () => {
-  const [isAuth, setIsAuth] = useState<
-    string | null | undefined | CookieValueTypes
-  >('');
+  const { data: session } = useSession();
   const route = useRouter();
   const [navbarHeight, setNavbarHeight] = useState<number>(80);
   useEffect(() => {
@@ -36,13 +33,6 @@ const GlobalNavbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [navbarHeight]);
-
-  useEffect(() => {
-    if (isAuth !== null && isAuth !== undefined) {
-      setIsAuth(checkRole());
-    }
-    console.log(isAuth);
-  }, [isAuth]);
 
   return (
     <NavbarContainer height={navbarHeight}>
@@ -71,11 +61,11 @@ const GlobalNavbar = () => {
             />
           ))}
         </IconsWrapper>
-        {isAuth === 'user' ? (
+        {session?.user.roles.includes('user') ? (
           <SigninButton onClick={() => route.push('/user')}>
             My Dashboard
           </SigninButton>
-        ) : isAuth === 'admin' ? (
+        ) : session?.user.roles.includes('admin') ? (
           <SigninButton onClick={() => route.push('/admin')}>
             Admin Dashboard
           </SigninButton>

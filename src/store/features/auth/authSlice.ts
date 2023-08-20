@@ -14,6 +14,7 @@ const initialState = {
 // login user async action
 export const loginUser = createAsyncThunk(
   'auth/login',
+  // @ts-ignore
   async ({ email, password, router }, thunkAPI) => {
     try {
       console.log({ email, password });
@@ -23,7 +24,7 @@ export const loginUser = createAsyncThunk(
       });
       // setCookie('token', user?.access_token);
       setCookie('role', user?.roles[0]);
-      localStorage.setItem('token', user?.access_token);
+      // localStorage.setItem('token', user?.access_token);
       if (user?.roles.includes('admin')) {
         router.push('/admin');
         console.log('go admin');
@@ -43,6 +44,7 @@ export const loginUser = createAsyncThunk(
 // register user action
 export const registerUser = createAsyncThunk(
   'auth/register',
+  // @ts-ignore
   async ({ email, password, router }, thunkAPI) => {
     const payload = {
       email,
@@ -62,6 +64,7 @@ export const registerUser = createAsyncThunk(
 // logout user action-->
 export const logoutUser = createAsyncThunk(
   'auth/logout',
+  // @ts-ignore
   async ({ router }, thunkAPI) => {
     const isToken = hasCookie('role');
 
@@ -118,9 +121,11 @@ const authSlice = createSlice({
       state.loading = true;
     });
     builder.addCase(registerUser.fulfilled, (state, { payload }) => {
+      // @ts-ignore
       if (payload?.success) {
         state.loading = false;
         state.success = true;
+        // @ts-ignore
         state.userCreated = true;
       }
     });
@@ -138,7 +143,7 @@ const authSlice = createSlice({
       state.error = null;
       state.loading = false;
       state.userToken = null;
-      deleteCookie();
+      deleteCookie('token');
     });
     builder.addCase(logoutUser.rejected, (state, { payload }) => {
       state.error = payload.message;

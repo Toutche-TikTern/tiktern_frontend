@@ -6,7 +6,11 @@ const UserSettingsPage = () => {
   const [user, setUser] = useState<{} | null>();
 
   useEffect(() => {
-    var localUser = localStorage.getItem('user');
+    var localUser;
+    if (typeof window !== 'undefined') {
+      localUser = localStorage.getItem('user');
+    }
+
     if (localUser) {
       setUser(JSON.parse(localUser));
     } else setUser(null);
