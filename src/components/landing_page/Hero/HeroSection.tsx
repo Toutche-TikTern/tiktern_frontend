@@ -11,12 +11,16 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <section className="relative flex items-center justify-center w-full max-h-max">
-      <div className="mt-0 ">
-        <BigHeading selected color="#252525" className="text-center">
+    <section className="relative flex items-center justify-center w-full ">
+      <div className="mt-5 ">
+        <BigHeading
+          selected
+          color="#252525"
+          className="text-center !text-[64px]"
+        >
           Rider centric, Social Platform for Cycling
         </BigHeading>
-        <div className="flex flex-col items-center justify-center w-full gap-5 my-10 lg:mt-5 lg:flex-row">
+        <div className="flex flex-col items-center justify-center w-full gap-[60px] my-10 lg:mt-5 lg:flex-row">
           <div className="flex items-center gap-3">
             <MaskIcon
               id="cycle"
@@ -27,7 +31,7 @@ const HeroSection = () => {
               color="#536eff"
               selected
             />
-            <div className="text-[#536eff] text-[1rem]">
+            <div className="text-[#536eff] text-[18px]">
               Immersive Experience
             </div>
           </div>
@@ -41,7 +45,7 @@ const HeroSection = () => {
               color="#ff7348"
               selected
             />
-            <div className="text-[#ff7348] text-[1rem]">No Subscriptions</div>
+            <div className="text-[#ff7348] text-[18px]">No Subscriptions</div>
           </div>
           <div className="flex items-center gap-3">
             <MaskIcon
@@ -53,40 +57,42 @@ const HeroSection = () => {
               color="#8f00ff"
               selected
             />
-            <div className="text-[#8f00ff] text-[1rem]">Ride & Earn</div>
+            <div className="text-[#8f00ff] text-[18px]">Ride & Earn</div>
           </div>
         </div>
-        <Image
-          src="/imgs/banner-img.png"
-          alt="My Image"
-          width={600}
-          height={400}
-          className="object-cover object-center mx-auto"
-        />
-        <SectionHeading className="px-5 mt-5 font-light text-center">
+        <div className="my-[80px]">
+          <Image
+            src="/imgs/banner-img.png"
+            alt="My Image"
+            width={800}
+            height={600}
+            className="object-cover object-center mx-auto"
+          />
+        </div>
+        <BigHeading className="px-5 mt-5 font-light text-center ">
           Get on the Bike, and
           <span className="text-[#04ec1b] font-semibold drop-shadow-sm">
             {' '}
             into a better World
           </span>
-        </SectionHeading>
-        <SectionHeading
+        </BigHeading>
+        {/* <SectionHeading
           selected
           color="#d830dc"
-          className="text-center mx-auto w-[90%] lg:w-[40%] mt-8"
+          className="text-center mx-auto w-[90%] lg:w-[40%] my-[100px]"
         >
           TikTern’s mission is to get more people onto bikes & ebikes and help
           build a better world around us.
-        </SectionHeading>
+        </SectionHeading> */}
 
-        <Para className="text-justify mx-auto  w-[90%]  lg:w-[60%] mt-8 text-gray-600 text-sm lg:text-lg">
-          The features are shaped after extensive, ground-up research with
-          cyclists, cycling communities and industry professionals. It is
+        <p className="text-center mx-auto  w-[90%]  lg:w-[60%]  text-gray-600 text-sm lg:text-2xl my-[50px]">
+          Tiktern&apos;s features are shaped after extensive, ground-up research
+          with cyclists, cycling communities and industry professionals. It is
           purpose-built to serve individuals, groups, and cycling clubs, making
           cycling immersive, safer and collaborative like never before.
-        </Para>
+        </p>
 
-        <div className="flex items-center justify-center w-[35%] mx-auto gap-[40px] my-10">
+        <div className="flex items-center justify-center w-[35%] mx-auto gap-[120px] my-[100px] font-bold">
           <div className="text-[#4d69ff] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
             Healthy <br /> Lifestyles
           </div>
@@ -97,7 +103,7 @@ const HeroSection = () => {
             Reduced <br /> Congestion
           </div>
           <div className="text-[#ff4d00] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
-            Happy <br /> People
+            Happier <br /> People
           </div>
         </div>
       </div>
