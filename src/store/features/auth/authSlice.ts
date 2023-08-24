@@ -72,8 +72,10 @@ export const logoutUser = createAsyncThunk(
         if (user.success) {
           deleteCookie('role');
           deleteCookie('token');
-          localStorage.removeItem('token');
-          localStorage.removeItem('user');
+          deleteCookie('token_expire');
+          deleteCookie('user');
+          localStorage.clear();
+          // localStorage.removeItem('user');
           router.push('/auth/login');
           return user;
         }

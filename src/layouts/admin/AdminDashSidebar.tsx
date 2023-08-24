@@ -1,6 +1,7 @@
 'use client';
 import SidebarLink from '@/components/user/SidebarLink';
 import { SidebarContainer } from '@/styles/styled_components/layouts/DashboardWrapper.styled';
+import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
@@ -13,20 +14,33 @@ import { useThemeContext } from '../../contexts/theme.context';
 interface USER {
   fname?: string;
   lname?: string;
+  username?: string;
+  phone?: string;
+  email?: string;
 }
 
 const AdminDashSidebar = () => {
   const { setThemeMode, themeMode } = useThemeContext();
   const isSidebarOpen = useSelector((state: any) => state.toggles.sidebar);
   const [user, setUser] = useState<USER | null>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   // @ts-ignore
-  const { loading, success, userInfo } = useSelector((state) => state.user);
+  // const { loading, success, userInfo } = useSelector((state) => state.user);
+
   useEffect(() => {
-    var localUser = localStorage.getItem('user');
-    if (localUser !== null) {
-      setUser(JSON.parse(localUser));
+    setIsLoading(true);
+    const userCookieValue = getCookie('user');
+    const getUser =
+      userCookieValue && typeof userCookieValue === 'string'
+        ? JSON.parse(userCookieValue)
+        : null;
+
+    if (getUser !== undefined && getUser !== null) {
+      setUser(getUser);
+      setIsLoading(false);
     }
-  }, [success]);
+  }, []);
+
   return (
     <SidebarContainer
       open={isSidebarOpen}

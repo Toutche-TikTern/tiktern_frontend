@@ -11,7 +11,7 @@ import React from 'react';
 
 const HeroSection = () => {
   return (
-    <section className="relative flex items-center justify-center w-full lg:h-screen max-h-max">
+    <section className="relative flex items-center justify-center w-full max-h-max">
       <div className="mt-0 ">
         <BigHeading selected color="#252525" className="text-center">
           Rider centric, Social Platform for Cycling

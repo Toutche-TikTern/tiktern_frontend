@@ -14,6 +14,7 @@ const ActivityPage = () => {
     </main>
   );
 };
+
 // const fetchPhotos = async () => {
 //   try {
 //     const res = await axiosClient.get('/activity/image');

@@ -37,6 +37,7 @@ const ActivityForm = () => {
     activity_link: '',
     activity_desc: '',
     terns_reward: 0,
+    tiks_reward: 0,
   });
 
   const [activityExpiryDate, setActivityExpiryDate] =
@@ -53,6 +54,7 @@ const ActivityForm = () => {
   // handle submit and hit activity creation api
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const token = localStorage.getItem('token');
     console.log('CLIENT STATE:: ', state);
 
     try {
@@ -62,8 +64,13 @@ const ActivityForm = () => {
         activity_desc: state.activity_desc,
         activity_expiry: activityExpiryDate,
         terns_reward: state.terns_reward,
+        tiks_reward: state.tiks_reward,
       };
-      await axiosClient.post('/activity', data);
+      await axiosClient.post('/activity', data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
     } catch (error) {
       console.log('Error in creating activity!');
     }
@@ -98,6 +105,16 @@ const ActivityForm = () => {
         min={0}
         minLength={0}
         placeholder="̧📝 Enter the Terns will be rewarded"
+        className="admin-activity-form_text"
+        onChange={handleOnChange}
+      />
+      <input
+        type="number"
+        name="tiks_reward"
+        id="tiks_reward"
+        min={0}
+        minLength={0}
+        placeholder="Enter the Tiks will be rewarded"
         className="admin-activity-form_text"
         onChange={handleOnChange}
       />

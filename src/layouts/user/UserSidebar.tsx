@@ -1,28 +1,42 @@
 'use client';
 import SidebarLink from '@/components/user/SidebarLink';
+import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
 import { MdArchive, MdSpaceDashboard } from 'react-icons/md';
-import { useSelector } from 'react-redux';
 import { useThemeContext } from '../../contexts/theme.context';
 
 interface USER {
   fname?: string;
   lname?: string;
+  username?: string;
+  phone?: string;
+  email?: string;
 }
 
 const UserSidebar = () => {
   const [user, setUser] = useState<USER | null>({});
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   // @ts-ignore
-  const { loading, success, userInfo } = useSelector((state) => state.user);
+  // const { loading, success, userInfo } = useSelector((state) => state.user);
+
   useEffect(() => {
-    var localUser = localStorage.getItem('user');
-    if (localUser !== null) {
-      setUser(JSON.parse(localUser));
+    setIsLoading(true);
+    const userCookieValue = getCookie('user');
+    const getUser =
+      userCookieValue && typeof userCookieValue === 'string'
+        ? JSON.parse(userCookieValue)
+        : null;
+
+    if (getUser !== undefined && getUser !== null) {
+      setUser(getUser);
+      setIsLoading(false);
     }
-  }, [success]);
+  }, []);
+
   const { setThemeMode, themeMode } = useThemeContext();
   return (
     <aside className="w-[300px]  h-screen relative drop-shadow-xl bg-dark-800">
@@ -53,9 +67,12 @@ const UserSidebar = () => {
             user && user.lname !== undefined ? user.lname : ''
           }`}
         </div>
-        <button className="border border-white/30 text-white/50 outline-none rounded-full w-[50px] text-xs h-[30px]">
+        <Link
+          href={'/user/settings'}
+          className="border border-white/30 text-white/50 outline-none rounded-full w-[50px] text-xs h-[30px] cursor-pointer hover:bg-app-2 hover:text-white transition-all duration-300 ease-in-out flex justify-center items-center"
+        >
           Edit
-        </button>
+        </Link>
       </div>
       {/* links */}
       <div className="h-[50vh] px-[30px] pt-5 flex flex-col gap-2">

@@ -10,9 +10,14 @@ const ManageUsersPage = () => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const fetchPhotos = async () => {
+    const token = localStorage.getItem('token');
     try {
       setIsLoading(true);
-      const res = await axiosClient.get('/user');
+      const res = await axiosClient.get('/user', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log('iMages:', res);
       setData(res.data.users);
       setIsLoading(false);
@@ -61,7 +66,7 @@ const ManageUsersPage = () => {
                         item.activities.length > 0
                           ? // @ts-ignore
                             item.activities.map((i, ind) => {
-                              const photo = `https://tiktern-server.onrender.com/uploads/${i?.image_proof}`;
+                              const photo = `https://tiktern-backend.azurewebsites.net/uploads/${i?.image_proof}`;
                               return (
                                 <div key={ind} className="flex ">
                                   {/* @ts-ignore */}

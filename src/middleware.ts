@@ -7,11 +7,25 @@ export function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const isLogin = request.cookies.get('token')?.value;
   const userRole = request.cookies.get('role')?.value;
-  // console.log(userRole);
+  const tokenExpirationCookie = request.cookies.get('token_expire');
+
+  const tokenExpiration = tokenExpirationCookie
+    ? new Date(tokenExpirationCookie.value)
+    : undefined; // Parse the token expiration value
+  const currentTime = new Date(Date.now());
+
+  console.log(tokenExpiration);
+  console.log(currentTime);
+  // console.log(currentTime > tokenExpiration);
+
   const isProtected = PROTECTED_ROUTES.some((value) =>
     url.pathname.includes(value)
   );
-  if (!isLogin) {
+
+  // Check if the token is expired
+  const isTokenExpired = tokenExpiration && currentTime > tokenExpiration;
+
+  if (!isLogin || isTokenExpired) {
     if (isProtected) {
       url.pathname = '/auth/login';
       return NextResponse.redirect(url);
@@ -25,6 +39,7 @@ export function middleware(request: NextRequest) {
       // return NextResponse.rewrite(new URL('/admin/dashboard', request.url));
     }
   }
+
   //   return NextResponse.redirect(new URL('/home', request.url));
   return NextResponse.next();
 }

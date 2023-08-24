@@ -1,5 +1,6 @@
 import { ThemeContextProvider } from '@/contexts/theme.context';
 import ReduxProvider from '@/store/ReduxProvider';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.scss';
 import '../styles/tailwind.css';
 

@@ -1,6 +1,7 @@
 'use client';
 import { axiosClient } from '@/utils/axiosInstance';
 import axios from 'axios';
+import { getCookie } from 'cookies-next';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 type Props = {};
@@ -21,14 +22,31 @@ type FileState = {
 
 const LiveActivitiesTable = (props: Props) => {
   const [activityData, setActivityData] = useState<Activity[]>([]);
+  const [currUserActivity, setCurrUserActivity] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [imageFile, setImageFile] = useState<File[] | null>([]);
+  // const [imageFile, setImageFile] = useState<File | null>({});
+  const [imageFile, setImageFile] = useState<Record<string, File | null>>({});
   const [submittedActivities, setSubmittedActivities] = useState<string[]>([]);
   const [uploading, setUploading] = useState<boolean>(false);
+
+  // fetch activity data from db
   const fetchActivity = async () => {
     setIsLoading(true);
     try {
-      const { data } = await axiosClient.get('/activity');
+      const token = localStorage.getItem('token');
+      const { data } = await axiosClient.get('/activity', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const res = await axiosClient.get('/user/curr-user', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.data.success) {
+        localStorage.setItem('userId', res.data.user._id);
+      }
       setActivityData(data?.activity || []);
       setIsLoading(false);
     } catch (error) {
@@ -36,63 +54,107 @@ const LiveActivitiesTable = (props: Props) => {
     }
   };
 
+  const fetchCurrUserActivity = async () => {
+    setIsLoading(true);
+    const token = localStorage.getItem('token');
+
+    try {
+      const res = await axiosClient.get('/user/curr-user', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      if (res.data.success) {
+        setCurrUserActivity(res.data?.user?.activities);
+        localStorage.setItem('user_terns', res.data?.user?.terns_earned);
+        localStorage.setItem('user_tiks', res.data?.user?.tiks_earned);
+        setIsLoading(false);
+        // console.log(currUserActivity);
+      }
+    } catch (error) {
+      console.log('Error in fetching current user activity', error);
+    }
+  };
+
   // calling in useEffect
   useEffect(() => {
     // fetchUser();
-    fetchActivity();
+    const token = getCookie('token');
+    if (token !== undefined && typeof token === 'string') {
+      fetchActivity();
+    }
     // console.log(activityData);
   }, []);
 
+  useEffect(() => {
+    fetchCurrUserActivity();
+    // const token = getCookie('token');
+    // if (token !== undefined && typeof token === 'string') {
+    // }
+  }, [uploading]);
+
+  // handle photo upload on client side
   const handleFileChange = (
     e: React.ChangeEvent<HTMLInputElement>,
     activityId: string
   ) => {
     const files = e.target.files;
     if (files) {
-      // @ts-ignore
-      const updatedFileStates = [...imageFile];
-      // @ts-ignore
+      const updatedFileStates = { ...imageFile };
       updatedFileStates[activityId] = files[0];
-      // @ts-ignore
       setImageFile(updatedFileStates);
     }
+    // if (files) {
+    //   // @ts-ignore
+    //   const updatedFileStates = [...imageFile];
+    //   // @ts-ignore
+    //   updatedFileStates[activityId] = files[0];
+    //   // @ts-ignore
+    //   setImageFile(updatedFileStates);
+    // }
   };
 
   const handleClick = async (activityId: string) => {
-    console.log(activityId);
+    // console.log(activityId);
     setUploading(true);
-    const currUser = localStorage.getItem('user');
+    const currUserId = localStorage.getItem('userId');
     if (imageFile) {
-      if (currUser) {
+      if (currUserId) {
         // @ts-ignore
-        const userId = JSON.parse(currUser)._id;
+        // const userId = JSON.parse(currUser)._id;
 
-        console.log(userId);
+        // console.log(currUserId);
         const formData = new FormData();
-        console.log(imageFile);
         // @ts-ignore
         const file = imageFile[activityId];
-        if (file) {
-          formData.append('image', file as Blob, file.name);
-          formData.append('userId', userId);
+        // console.log('Image Files::', imageFile);
+        // console.log('Selected File:', file);
+        if (file !== undefined && file !== null) {
+          formData.append('image', file as Blob, file?.name);
+          // console.log(file);
+          formData.append('userId', currUserId);
           formData.append('activityId', activityId);
           const token = localStorage.getItem('token');
-          console.log('token', token);
+          // console.log('token', token);
           try {
             const res = await axios.patch(
               'https://tiktern-backend.azurewebsites.net/api/v1/activity/image',
               formData,
               {
                 headers: {
-                  'Content-Type': 'application/json',
+                  'Content-Type': 'multipart/form-data',
                   Authorization: `Bearer ${token}`,
                 },
               }
             );
-            console.log('Response:', res);
+            // console.log('Response:', res);
             setSubmittedActivities([...submittedActivities, activityId]);
-            setImageFile(null);
             setUploading(false);
+
+            setImageFile((prevImageFile) => ({
+              ...prevImageFile,
+              [activityId]: null, // Clear the uploaded file for this activity
+            }));
           } catch (error) {
             console.log(error);
           }
@@ -100,8 +162,6 @@ const LiveActivitiesTable = (props: Props) => {
       }
     }
   };
-
-  // todo::: handle activity status if uploaded remove the input form
 
   return (
     <div className="py-[20px] px-[40px] mt-10">
@@ -139,8 +199,13 @@ const LiveActivitiesTable = (props: Props) => {
                     const expiry = moment(item?.activity_expiry).format(
                       'MMMM Do YYYY'
                     );
-                    const isActivitySubmitted = submittedActivities.includes(
-                      item._id
+                    // const isActivitySubmitted = submittedActivities.includes(
+                    //   item._id
+                    // );
+                    const isActivitySubmitted = currUserActivity.some(
+                      (completedActivity) =>
+                        // @ts-ignore
+                        completedActivity.activity_id === item._id
                     );
                     return (
                       <div key={index} className="flex ">
