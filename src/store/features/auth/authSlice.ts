@@ -69,16 +69,16 @@ export const logoutUser = createAsyncThunk(
     try {
       if (isToken) {
         const { data: user } = await axiosClient.post('/auth/logout');
-        if (user.success) {
-          deleteCookie('role');
-          deleteCookie('token');
-          deleteCookie('token_expire');
-          deleteCookie('user');
-          localStorage.clear();
-          // localStorage.removeItem('user');
-          router.push('/auth/login');
-          return user;
-        }
+        deleteCookie('role');
+        deleteCookie('token');
+        deleteCookie('token_expire');
+        deleteCookie('user');
+        localStorage.clear();
+        // localStorage.removeItem('user');
+        router.push('/auth/login');
+        return user;
+        // if (user.success) {
+        // }
       }
     } catch (error) {
       console.log('Error in logout the user::', error);

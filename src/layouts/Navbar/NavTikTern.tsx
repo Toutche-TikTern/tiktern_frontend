@@ -37,7 +37,7 @@ const NavTikTern = () => {
   }, []);
 
   return (
-    <div className="flex items-center gap-5 text-white/80">
+    <div className="flex items-center gap-5 text-black/80">
       <div className="flex items-center gap-2 text-xs font-bold">
         <Image alt="Tern" src={'/imgs/coins-2.png'} width={40} height={40} />
         TERN
