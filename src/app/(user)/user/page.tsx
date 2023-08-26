@@ -10,8 +10,10 @@ const UserDashboard = (props: Props) => {
   return (
     <main className="flex-1">
       <UserNavbar title="My Dashboard" />
-      <WelcomeSection />
-      <LiveActivitiesTable />
+      <div className="h-[calc(100vh-80px)] overflow-y-auto">
+        <WelcomeSection />
+        <LiveActivitiesTable />
+      </div>
     </main>
   );
 };

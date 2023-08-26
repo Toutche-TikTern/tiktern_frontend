@@ -19,5 +19,12 @@
     "titleBar.inactiveForeground": "#e7e7e799"
   },
   "peacock.color": "#007fff",
-  "cSpell.words": ["NEXTAUTH", "Signin", "tiks", "Tiktern"]
+  "cSpell.words": [
+    "headlessui",
+    "NEXTAUTH",
+    "Signin",
+    "tiks",
+    "Tiktern",
+    "Tokenomics"
+  ]
 }

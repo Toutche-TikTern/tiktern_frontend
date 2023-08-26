@@ -1,21 +1,23 @@
 'use client';
-import { fontSize } from '@/constant/globalStyledConstants';
-import { MaskIcon } from '@/styles/styled_components/components/Global.styled';
 import {
-  BigHeading,
-  Para,
-  SectionHeading,
-} from '@/styles/styled_components/components/Text.styled';
+  MaskIcon,
+  MixBlendImage,
+} from '@/styles/styled_components/components/Global.styled';
+import { BigHeading } from '@/styles/styled_components/components/Text.styled';
 import Image from 'next/image';
 import React from 'react';
 
-const HeroSection = () => {
+const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
   return (
-    <section className="relative flex items-center justify-center w-full ">
+    <section
+      className={`relative flex items-center justify-center w-full ${
+        themeMode ? 'text-white' : 'text-black '
+      }`}
+    >
       <div className="mt-5 ">
         <BigHeading
           selected
-          color="#252525"
+          color={themeMode ? '#fff' : '#252525'}
           className="text-center !text-[64px]"
         >
           Rider centric, Social Platform for Cycling
@@ -62,11 +64,11 @@ const HeroSection = () => {
         </div>
         <div className="my-[80px]">
           <Image
-            src="/imgs/banner-img.png"
+            src={`/imgs/banner-img.png`}
             alt="My Image"
             width={800}
             height={600}
-            className="object-cover object-center mx-auto"
+            className="object-cover object-center mx-auto mix-blend-multiply "
           />
         </div>
         <BigHeading className="px-5 mt-5 font-light text-center ">
@@ -85,7 +87,11 @@ const HeroSection = () => {
           build a better world around us.
         </SectionHeading> */}
 
-        <p className="text-center mx-auto  w-[90%]  lg:w-[60%]  text-gray-600 text-sm lg:text-2xl my-[50px]">
+        <p
+          className={`text-center mx-auto  w-[90%]  lg:w-[60%]   text-sm lg:text-2xl my-[50px] ${
+            themeMode ? ' text-white/80' : 'text-gray-600'
+          }`}
+        >
           Tiktern&apos;s features are shaped after extensive, ground-up research
           with cyclists, cycling communities and industry professionals. It is
           purpose-built to serve individuals, groups, and cycling clubs, making

@@ -2,17 +2,23 @@
 import Image from 'next/image';
 import React from 'react';
 
-type Props = {};
-
-const FoundingTeam = (props: Props) => {
+const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
   return (
-    <div className="">
-      <div className="text-2xl font-bold text-center lg:text-3xl text-appColor3 mt-[100px]">
+    <div className={`${themeMode ? 'text-white' : 'text-black'}`}>
+      <div
+        className={`text-2xl font-bold text-center lg:text-3xl  mt-[100px] ${
+          themeMode ? 'text-white' : 'text-black'
+        }`}
+      >
         Founding Team
       </div>
       {/* Image cards */}
       <div className="flex flex-col items-center justify-center w-full gap-5 mt-20 md:flex-row">
-        <div className="p-5 border rounded-3xl w-[300px] h-[450px]">
+        <div
+          className={`p-5 border rounded-3xl w-[300px] h-[450px] ${
+            themeMode ? 'text-white' : 'text-black'
+          }`}
+        >
           <div className="relative w-[250px] h-[300px] rounded-2xl">
             <Image
               alt="tiktern"
@@ -21,7 +27,7 @@ const FoundingTeam = (props: Props) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl text-black/90">Raghu Kerakatty</h1>
+          <h1 className="mt-5 text-xl ">Raghu Kerakatty</h1>
           <p>Founder</p>
         </div>
         <div className="p-5 border rounded-3xl w-[300p h-[450px]">
@@ -33,7 +39,7 @@ const FoundingTeam = (props: Props) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl text-black/90">Satayakam Chakraverty</h1>
+          <h1 className="mt-5 text-xl ">Satayakam Chakraverty</h1>
           <p>Founder</p>
         </div>
         <div className="p-5 border rounded-3xl w-[300px h-[450px]">
@@ -45,7 +51,7 @@ const FoundingTeam = (props: Props) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl text-black/90">Abishek Singh Sony</h1>
+          <h1 className="mt-5 text-xl ">Abishek Singh Sony</h1>
           <p>
             Founding Member <br /> Blockchain Developer
           </p>
@@ -60,7 +66,7 @@ const FoundingTeam = (props: Props) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl text-black/90">Mohd Ayan Ansari</h1>
+          <h1 className="mt-5 text-xl ">Mohd Ayan Ansari</h1>
           <p>
             Founding Member <br /> FullStack Developer
           </p>

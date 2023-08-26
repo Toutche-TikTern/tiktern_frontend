@@ -9,13 +9,16 @@ export function middleware(request: NextRequest) {
   const userRole = request.cookies.get('role')?.value;
   const tokenExpirationCookie = request.cookies.get('token_expire');
 
-  const tokenExpiration = tokenExpirationCookie
-    ? new Date(tokenExpirationCookie.value)
-    : undefined; // Parse the token expiration value
-  const currentTime = new Date(Date.now());
+  const loginTime = tokenExpirationCookie
+    ? parseInt(tokenExpirationCookie.value)
+    : 0; // Parse the token expiration value
+  // const currentTime = new Date(Date.now());
+  const currentTime = new Date().getTime();
+  const halfHourInMillis = 30 * 60 * 1000; // 30 minutes in milliseconds
 
-  console.log(tokenExpiration);
-  console.log(currentTime);
+  // console.log('Current Time:', currentTime);
+  // console.log('Remaini Time:', loginTime + halfHourInMillis);
+  // console.log(loginTime + halfHourInMillis < currentTime);
   // console.log(currentTime > tokenExpiration);
 
   const isProtected = PROTECTED_ROUTES.some((value) =>
@@ -23,9 +26,10 @@ export function middleware(request: NextRequest) {
   );
 
   // Check if the token is expired
-  const isTokenExpired = tokenExpiration && currentTime > tokenExpiration;
+  // const isTokenExpired = currentTime > currentTime + 5;
+  const hasPassedHalfHour = loginTime + halfHourInMillis < currentTime;
 
-  if (!isLogin || isTokenExpired) {
+  if (!isLogin || hasPassedHalfHour) {
     if (isProtected) {
       url.pathname = '/auth/login';
       return NextResponse.redirect(url);

@@ -6,27 +6,35 @@ import Image from 'next/image';
 import React from 'react';
 import TabContainer from './Tabs/TabContainer';
 
-const ThirdSection = () => {
+const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
   return (
     <section className="py-[100px] px-[10px]">
       <SectionHeading
         selected
-        color="#4d69ff"
+        color={themeMode ? 'white' : 'black'}
         className="!text-3xl !uppercase  text-center"
       >
         Tokenomics
       </SectionHeading>
       <div className="flex justify-center mt-10 w-ful">
         <div className="flex justify-center w-full">
-          <TabContainer />
+          <TabContainer themeMode={themeMode} />
         </div>
       </div>
-      <div className="mt-10 text-lg font-light text-center text-gray-800">
+      <div
+        className={`mt-10 text-lg font-light text-center ${
+          themeMode ? 'text-white/80' : 'text-gray-800 '
+        }`}
+      >
         <span className="underline decoration-appColor3">Tokens</span> and{' '}
         <span className="underline decoration-appColor4">NFT&apos;s</span> can
         be exchanged for other crypto tokens or traded
       </div>
-      <SectionHeading className="mt-20 mb-5 text-center text-appColor3">
+      <SectionHeading
+        className={`mt-[100px] mb-[50px] text-center !text-3xl  ${
+          themeMode ? 'text-white' : 'text-black'
+        }`}
+      >
         TERN Token <br /> Distribution & Vesting
       </SectionHeading>
       <div className="flex flex-col items-center w-full">
@@ -35,22 +43,39 @@ const ThirdSection = () => {
           src="/imgs/pie-chart.png"
           width={800}
           height={800}
+          className={`${themeMode ? '' : ''}`}
         />
-        <p className="mt-10 text-lg font-light text-center text-gray-800">
+        <p
+          className={`mt-10 text-lg font-light text-center  ${
+            themeMode ? 'text-white/80' : 'text-gray-800'
+          }`}
+        >
           Founding team and advisor tokens will be locked for the first 12
           months and vest in the following fashion
         </p>
         {/* <-------   Section   ----------> */}
         <div className="flex divide-x w-[100%] lg:w-[50%] mt-10">
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
-            <h1 className="text-3xl font-bold">25%</h1>
+            <h1
+              className={`text-3xl font-bold ${
+                themeMode ? 'text-white' : 'text-black'
+              }`}
+            >
+              25%
+            </h1>
             <p className="text-xs text-gray-500 lg:text-base">
               at the end of 12 months
             </p>
           </div>
 
           <div className="flex flex-col items-center w-1/2 gap-2 text-center">
-            <h1 className="text-3xl font-bold">6.25%</h1>
+            <h1
+              className={`text-3xl font-bold ${
+                themeMode ? 'text-white' : 'text-black'
+              }`}
+            >
+              6.25%
+            </h1>
             <p className="w-[90%] lg:w-[40%] text-gray-500 text-xs lg:text-base">
               Thereafter at the end of every quarter for 12 quarters
             </p>
@@ -58,14 +83,22 @@ const ThirdSection = () => {
         </div>
         {/* <-------   Section   ----------> */}
         <section className="flex flex-col items-center w-full mt-[100px]">
-          <div className="w-[70%] border-2 border-appColor2 rounded-xl h-[220px] flex flex-col gap-3 justify-center items-center">
+          <div
+            className={`w-[70%] border-2 border-appColor2 rounded-xl h-[220px] flex flex-col gap-3 justify-center items-center ${
+              themeMode ? 'text-white' : 'text-black'
+            }`}
+          >
             <h1 className="text-2xl text-center">
               The{' '}
               <span className="font-bold text-appColor2">Token Minting</span>{' '}
               and <span className="font-bold text-appColor2">NFT Minting</span>{' '}
               days will be announced soon.
             </h1>
-            <p className="text-center text-gray-600">
+            <p
+              className={`text-center ${
+                themeMode ? 'text-white/80' : 'text-gray-600'
+              }`}
+            >
               Earning tokens is easiest in the initial phase so join now and
               start earning early!
             </p>
@@ -75,17 +108,25 @@ const ThirdSection = () => {
             src="/imgs/cycle-img-1.png"
             width={800}
             height={800}
-            className="mt-[-30px]"
+            className={`mt-[-30px] ${themeMode ? 'mix-blend-multiply' : ''}`}
           />
         </section>
       </div>
 
       {/* Foundation member fm club */}
       <div className="flex flex-col items-center justify-center mt-[100px] ">
-        <div className="text-2xl text-center text-3xl text-black/80 mt-[100px] font-bold">
+        <div
+          className={`text-2xl text-3xl font-bold text-center  ${
+            themeMode ? 'text-white' : 'text-black/80'
+          }`}
+        >
           Foundation Members (FM) Club
         </div>
-        <p className="lg:px-[20%] mt-5 text-gray-600 text-sm lg:text-lg text-center">
+        <p
+          className={`lg:px-[20%] mt-5  text-sm lg:text-lg text-center ${
+            themeMode ? 'text-white/80' : 'text-gray-600'
+          }`}
+        >
           TikTern Foundation Members (FM) club will play a hands-on role, in
           laying the foundational blocks of the network and inherit an exclusive
           set of privileges in return.
@@ -99,11 +140,19 @@ const ThirdSection = () => {
       </div>
 
       {/* -------------------------------------------- */}
-      <div className="flex flex-col items-center justify-center mt-16 ">
-        <div className="text-2xl text-center lg:text-3xl text-black/80 mt-[100px] font-bold">
+      <div className="flex flex-col items-center justify-center mt-[100px] ">
+        <div
+          className={`text-2xl text-3xl font-bold text-center  ${
+            themeMode ? 'text-white' : 'text-black/80'
+          }`}
+        >
           FM club has 9999 seats only
         </div>
-        <p className="text-sm lg:text-lg lg:px-[20%] mt-5 text-gray-600 text-center">
+        <p
+          className={`lg:px-[20%] mt-5  text-sm lg:text-lg text-center ${
+            themeMode ? 'text-white/80' : 'text-gray-600'
+          }`}
+        >
           Join the Whitelist to be invited to the FM Club launch event and mint
           your Foundation Member NFT. The FM Club launch date will be announced
           soon.
@@ -112,7 +161,11 @@ const ThirdSection = () => {
 
       {/* -------------------------------------------- */}
       <div className="flex flex-col lg:flex-row px-[20%] gap-5 mt-10 items-center">
-        <div className="flex flex-col items-center justify-center text-center">
+        <div
+          className={`flex flex-col items-center justify-center text-center ${
+            themeMode ? 'text-white' : 'text-black'
+          }`}
+        >
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-1.png'}
@@ -120,11 +173,17 @@ const ThirdSection = () => {
             height={150}
           />
           <h5 className="mt-5 text-xl font-bold">EARLY CONTRIBUTORS</h5>
-          <p className="mt-5 text-gray-500">
+          <p
+            className={`mt-5  ${themeMode ? 'text-white/80' : 'text-gray-500'}`}
+          >
             FM NFT proceeds will go towards critical pre-launch activities
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center text-center">
+        <div
+          className={`flex flex-col items-center justify-center text-center ${
+            themeMode ? 'text-white' : 'text-black'
+          }`}
+        >
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-2.png'}
@@ -132,11 +191,17 @@ const ThirdSection = () => {
             height={150}
           />
           <h5 className="mt-5 text-xl font-bold">NETWORK DEVELOPMENT</h5>
-          <p className="mt-5 text-gray-500">
+          <p
+            className={`mt-5  ${themeMode ? 'text-white/80' : 'text-gray-500'}`}
+          >
             Hands-on engagement in various network development activities
           </p>
         </div>
-        <div className="flex flex-col items-center justify-center text-center">
+        <div
+          className={`flex flex-col items-center justify-center text-center ${
+            themeMode ? 'text-white' : 'text-black'
+          }`}
+        >
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-3.png'}
@@ -144,14 +209,20 @@ const ThirdSection = () => {
             height={150}
           />
           <h5 className="mt-5 text-xl font-bold">EXCLUSIVE PRIVILEGES</h5>
-          <p className="mt-5 text-gray-500">
+          <p
+            className={`mt-5  ${themeMode ? 'text-white/80' : 'text-gray-500'}`}
+          >
             Earn special privileges in return for making an early impact
           </p>
         </div>
       </div>
 
       {/* -------------------------------------------- */}
-      <div className="flex flex-col items-center text-center p-10 mt-20 justify-center border border-black rounded-2xl mx-auto md:w-[55%] ">
+      <div
+        className={`flex flex-col items-center text-center p-10 mt-20 justify-center border  rounded-2xl mx-auto md:w-[55%] ${
+          themeMode ? 'border-white text-white' : 'border-black text-black'
+        }`}
+      >
         <h1 className="text-2xl ">
           Exclusive Privileges of a <br />
           <span className="text-appColor2">Foundation Member</span>
@@ -170,7 +241,9 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">Special prices to buy Network NFTs</p>
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
+              Special prices to buy Network NFTs
+            </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-5 text-center">
             <Image
@@ -180,7 +253,9 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">Reduced resources to mint NFTs</p>
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
+              Reduced resources to mint NFTs
+            </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-5 text-center">
             <Image
@@ -190,7 +265,9 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">Token airdrops at a higher rate</p>
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
+              Token airdrops at a higher rate
+            </p>
           </div>
           <div className="flex flex-col items-center justify-center gap-5 text-center">
             <Image
@@ -200,7 +277,7 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
               Reserved privileges at key network events
             </p>
           </div>
@@ -212,7 +289,7 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
               Early access to TikTern App versions
             </p>
           </div>
@@ -224,7 +301,9 @@ const ThirdSection = () => {
               height={50}
               className=""
             />
-            <p className="text-gray-500">Special benefits on assorted brands</p>
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
+              Special benefits on assorted brands
+            </p>
           </div>
         </div>
         <Button
@@ -245,7 +324,7 @@ const ThirdSection = () => {
               src="/imgs/aa.png"
               width={800}
               height={200}
-              className=""
+              className="mt-10 rounded-lg"
             />
             <Button
               variant="contained"
@@ -258,7 +337,11 @@ const ThirdSection = () => {
 
         {/* ------------------------------- */}
       </div>
-      <div className="mt-[200px] text-2xl font-bold text-center lg:text-3xl text-appColor3">
+      <div
+        className={`mt-[100px] text-2xl font-bold text-center lg:text-3xl  ${
+          themeMode ? 'text-white' : 'text-black'
+        }`}
+      >
         Roadmap
       </div>
       <div className="flex justify-center w-full mt-10">
@@ -267,7 +350,7 @@ const ThirdSection = () => {
           src="/imgs/roadd.png"
           width={1200}
           height={200}
-          className=""
+          className="mt-10 rounded-xl"
         />
       </div>
     </section>

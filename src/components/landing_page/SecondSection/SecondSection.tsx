@@ -7,9 +7,7 @@ import {
 import React from 'react';
 import { CardContainer, TikternIsForCard } from '../Landing.styled';
 
-type Props = {};
-
-const SecondSection = (props: Props) => {
+const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
   return (
     <section>
       <CardContainer>
@@ -29,15 +27,27 @@ const SecondSection = (props: Props) => {
         ))}
       </CardContainer>
       {/* Section 2 */}
-      <p className="mx-auto text-center w-[90%] lg:w-[60%] mt-[100px] text-gray-600 text-2xl">
+      <p
+        className={`mx-auto text-center w-[90%] lg:w-[60%] mt-[100px]  text-2xl ${
+          themeMode ? ' text-white/80' : 'text-gray-600'
+        }`}
+      >
         TikTern is a rider-powered (Web3) economy where riders own the content,
         activities, events they create and decide on its monetisation.
       </p>
-      <p className="mx-auto text-center text-2xl w-[90%] lg:w-[60%]    text-black/80 mt-[50px]">
+      <p
+        className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]     mt-[50px] ${
+          themeMode ? 'text-white/80' : 'text-black/80'
+        }`}
+      >
         Transactions on TikTern are done with regular currency (USD) or platform
         native Tokens - Tik & Tern.
       </p>
-      <p className="mx-auto text-center text-2xl w-[90%] lg:w-[60%]  font-bold   text-black/80 mt-[50px]">
+      <p
+        className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]  font-bold    mt-[50px] ${
+          themeMode ? 'text-white/80' : 'text-black/80'
+        }`}
+      >
         It pays to ride on TikTern. All one needs is a TikTern Bike (virtual
         bike), download the App and start riding to earn Tik tokens!
       </p>

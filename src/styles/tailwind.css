@@ -12,6 +12,6 @@
   }
 
   .user-profile_input {
-    @apply h-[50px] outline-none rounded-[12px] bg-transparent ring-1 ring-offset-1 ring-offset-dark-700 ring-app-1 px-[10px] border border-app-1;
+    @apply h-[50px] outline-none rounded-[12px] bg-transparent ring-1 ring-offset-1 px-[10px] border;
   }
 }

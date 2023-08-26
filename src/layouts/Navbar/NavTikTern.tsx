@@ -1,10 +1,13 @@
 'use client';
+import { useThemeContext } from '@/contexts/theme.context';
 import { axiosClient } from '@/utils/axiosInstance';
 import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const NavTikTern = () => {
+  const { setThemeMode, themeMode } = useThemeContext();
+
   const [terns, setTerns] = useState({
     tik: 0,
     tern: 0,
@@ -37,7 +40,11 @@ const NavTikTern = () => {
   }, []);
 
   return (
-    <div className="flex items-center gap-5 text-black/80">
+    <div
+      className={`flex items-center gap-5 ${
+        themeMode ? 'text-black/80' : 'text-white'
+      }`}
+    >
       <div className="flex items-center gap-2 text-xs font-bold">
         <Image alt="Tern" src={'/imgs/coins-2.png'} width={40} height={40} />
         TERN

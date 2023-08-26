@@ -1,4 +1,5 @@
 'use client';
+import { useThemeContext } from '@/contexts/theme.context';
 import { axiosClient } from '@/utils/axiosInstance';
 import axios from 'axios';
 import { getCookie } from 'cookies-next';
@@ -21,6 +22,8 @@ type FileState = {
 };
 
 const LiveActivitiesTable = (props: Props) => {
+  const { setThemeMode, themeMode } = useThemeContext();
+
   const [activityData, setActivityData] = useState<Activity[]>([]);
   const [currUserActivity, setCurrUserActivity] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +49,7 @@ const LiveActivitiesTable = (props: Props) => {
       });
       if (res.data.success) {
         localStorage.setItem('userId', res.data.user._id);
+        localStorage.setItem('userImage', res.data.user?.user_image);
       }
       setActivityData(data?.activity || []);
       setIsLoading(false);
@@ -165,28 +169,43 @@ const LiveActivitiesTable = (props: Props) => {
 
   return (
     <div className="py-[20px] px-[40px] mt-10">
-      <div className="text-2xl font-bold text-app-1">Live Activities</div>
-      <hr className="mb-5 border-white/10" />
+      <div
+        className={`text-2xl font-bold ${
+          themeMode ? 'text-app-3' : 'text-app-1'
+        }`}
+      >
+        Live Activities
+      </div>
+      <hr
+        className={`mb-5 ${themeMode ? 'border-black/10' : 'border-white/10'}`}
+      />
 
       <div>
         {isLoading ? (
           <div>
             <h1 className="text-2xl font-bold animate-pulse text-app-2">
-              Loading
+              Loading...
             </h1>
           </div>
         ) : (
           <div>
             {/* live activity goes here --> */}
             {/* activity header */}
-            <div className="flex w-full font-bold h-[40px]">
+            <div
+              className={`flex w-full font-bold h-[40px] gap-2 ${
+                themeMode ? 'text-black' : 'text-white'
+              }`}
+            >
               <div className="w-[15%] flex ">Date</div>
-              <div className="w-[40%] flex ">Activity</div>
-              <div className="w-[15%] flex items-center justify-center">
+              <div className="flex flex-1 ">Activity</div>
+              <div className="w-[12%] flex items-center justify-center">
+                Tiks to Earn
+              </div>
+              <div className="w-[12%] flex items-center justify-center">
                 Terns to Earn
               </div>
-              <div className="w-[30%] flex items-center justify-center">
-                Proof of Completion
+              <div className="w-[20%] flex items-center justify-center">
+                Completion Proof
               </div>
             </div>
 
@@ -208,23 +227,32 @@ const LiveActivitiesTable = (props: Props) => {
                         completedActivity.activity_id === item._id
                     );
                     return (
-                      <div key={index} className="flex ">
+                      <div
+                        key={index}
+                        className={`flex gap-2 ${
+                          themeMode ? 'text-black' : 'text-white'
+                        }`}
+                      >
                         {/* date */}
                         <div className="w-[15%] flex items-center">
                           {expiry}
                         </div>
                         {/* activity name or desc */}
-                        <div className="w-[40%] flex  items-center">
+                        <div className="flex items-center flex-1 ">
                           {/* @ts-ignore */}
                           {item.activity_desc}
                         </div>
                         {/* tern earned */}
-                        <div className="w-[15%] flex text-center items-center justify-center">
+                        <div className="w-[12%] flex text-center items-center justify-center">
+                          {/* @ts-ignore */}
+                          {item.tiks_reward}
+                        </div>
+                        <div className="w-[12%] flex text-center items-center justify-center">
                           {/* @ts-ignore */}
                           {item.terns_reward}
                         </div>
                         {/* proof of completion */}
-                        <div className="w-[30%] flex justify-center items-center">
+                        <div className="w-[20%] flex justify-center items-center">
                           {isActivitySubmitted ? (
                             <div>Uploaded</div>
                           ) : (

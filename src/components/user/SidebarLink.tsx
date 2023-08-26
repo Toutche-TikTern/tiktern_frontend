@@ -12,16 +12,18 @@ import {
 const SidebarLink = ({
   link,
   name,
+  themeMode,
   children,
 }: {
   link: string;
   name: string;
+  themeMode: boolean;
   children: React.ReactNode;
 }) => {
   const path = usePathname();
   return (
     <Link prefetch href={link} passHref legacyBehavior>
-      <StyledLink active={path === link}>
+      <StyledLink active={path === link} themeMode={themeMode}>
         <SidebarIconWrapper>{children}</SidebarIconWrapper>
         <LinkName>{name}</LinkName>
       </StyledLink>

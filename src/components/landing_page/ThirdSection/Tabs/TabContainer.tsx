@@ -1,74 +1,73 @@
-import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import Tabs from '@mui/material/Tabs';
-import Typography from '@mui/material/Typography';
-import React from 'react';
+'use client';
+
+import { Tab, Transition } from '@headlessui/react';
+import React, { Fragment } from 'react';
 import TabOne from './TabOne';
 import TabTwo from './TabTwo';
 
-type Props = {};
-
-interface TabPanelProps {
-  children?: React.ReactNode;
-  index: number;
-  value: number;
-}
-
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
+const TabContainer = ({ themeMode }: { themeMode: boolean }) => {
   return (
-    <div
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
-      )}
+    <div className="w-[100%] flex flex-col justify-center items-center transition-all ease-in-out duration-300 ">
+      <Tab.Group>
+        <Tab.List
+          className={`flex space-x-1 rounded-full  p-1 w-[90%] lg:w-[20%] ${
+            themeMode ? 'bg-white/10' : 'bg-blue-900/10'
+          }`}
+        >
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              /* Use the `selected` state to conditionally style the selected tab. */
+              <button
+                className={`
+                w-full rounded-full py-2.5 text-sm  leading-5 text-white-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none uppercase font-black
+                ${
+                  selected
+                    ? themeMode
+                      ? 'bg-white shadow'
+                      : 'bg-dark-800 text-white'
+                    : themeMode
+                    ? ''
+                    : 'text-black-100 hover:bg-black/[0.12] hover:text-black'
+                } transition-all ease-in-out duration-300 
+            `}
+              >
+                Tokens
+              </button>
+            )}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (
+              /* Use the `selected` state to conditionally style the selected tab. */
+
+              <button
+                className={`
+                w-full rounded-full py-2.5 text-sm  leading-5 text-white-700 ring-white ring-opacity-60 ring-offset-2 ring-offset-blue-400 focus:outline-none uppercase font-black
+                ${
+                  selected
+                    ? themeMode
+                      ? 'bg-white shadow'
+                      : 'bg-dark-800 text-white'
+                    : themeMode
+                    ? ''
+                    : 'text-black-100 hover:bg-black/[0.12] hover:text-black'
+                } transition-all ease-in-out duration-300
+              `}
+              >
+                NFT&apos;s
+              </button>
+            )}
+          </Tab>
+        </Tab.List>
+        <Tab.Panels className={`mt-2 `}>
+          <Tab.Panel className={``}>
+            <TabOne themeMode={themeMode} />
+          </Tab.Panel>
+          <Tab.Panel>
+            <TabTwo themeMode={themeMode} />
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </div>
-  );
-}
-
-function a11yProps(index: number) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const TabContainer = (props: Props) => {
-  const [value, setValue] = React.useState(0);
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
-    setValue(newValue);
-  };
-  return (
-    <Box sx={{ width: '100%' }}>
-      <div className="flex justify-center w-full">
-        <Box className="w-[50%] lg:w-[30%]">
-          <Tabs
-            value={value}
-            onChange={handleChange}
-            aria-label="basic tabs example"
-            centered
-            className="border border-black/30 rounded-[14px]"
-          >
-            <Tab label="Tokens" {...a11yProps(0)} />
-            <Tab label="NFT's" {...a11yProps(1)} />
-          </Tabs>
-        </Box>
-      </div>
-      <TabPanel value={value} index={0}>
-        <TabOne />
-      </TabPanel>
-      <TabPanel value={value} index={1}>
-        <TabTwo />
-      </TabPanel>
-    </Box>
   );
 };
 

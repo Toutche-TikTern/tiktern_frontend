@@ -1,11 +1,13 @@
 'use client';
 import styled from 'styled-components';
-
-const DashboardWrapper = styled.main`
+interface PropsType {
+  themeMode: boolean;
+}
+const DashboardWrapper = styled.main<PropsType>`
   display: flex;
   width: 100%;
   height: 100vh;
-  background-color: #242529;
+  background-color: ${(props) => (props.themeMode ? '#fff' : '#242529')};
   color: #fff;
   position: relative;
 `;

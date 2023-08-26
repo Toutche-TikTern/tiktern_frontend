@@ -7,13 +7,15 @@ import TelegramIcon from '@mui/icons-material/Telegram';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { BsDiscord } from 'react-icons/bs';
 
-type Props = {};
-
-const LandingPageFooter = (props: Props) => {
+const LandingPageFooter = ({ themeMode }: { themeMode: boolean }) => {
   const date = new Date().getFullYear();
   return (
-    <div className="flex flex-col items-center justify-center mt-28">
-      <h1 className="text-xl text-black/80  w-[90%] lg:w-[50%] text-justify lg:text-center">
+    <div className="flex flex-col items-center justify-center mt-[100px]">
+      <h1
+        className={`text-xl   w-[90%] lg:w-[50%] text-justify lg:text-center ${
+          themeMode ? 'text-white/80' : 'text-black/80'
+        }`}
+      >
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
       </h1>
@@ -23,7 +25,7 @@ const LandingPageFooter = (props: Props) => {
           src="/imgs/foo.png"
           width={800}
           height={200}
-          className="hidden lg:block"
+          className={`hidden lg:block ${themeMode ? 'mix-blend-multiply' : ''}`}
         />
       </div>
       <div className="flex items-center gap-5 mt-[100px]">

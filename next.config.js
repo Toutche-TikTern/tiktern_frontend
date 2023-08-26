@@ -1,7 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ['localhost'],
+    domains: [
+      'localhost',
+      'cdn-icons-png.flaticon.com',
+      'tiktern-backend.azurewebsites.net',
+    ],
   },
   output: 'standalone',
 };

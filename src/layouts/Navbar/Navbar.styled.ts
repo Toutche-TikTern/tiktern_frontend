@@ -4,6 +4,7 @@ import { WIDTH } from './../../constant/screenResolutions';
 
 interface NavbarType {
   height: number;
+  themeMode: boolean;
 }
 export const NavbarContainer = styled.section<NavbarType>`
   display: flex;
@@ -16,7 +17,7 @@ export const NavbarContainer = styled.section<NavbarType>`
   align-items: center;
   height: ${(props) => `${props.height}px`};
   padding: 0px 200px 0px 200px;
-  background-color: #fff;
+  background-color: ${(props) => (props.themeMode ? '#242529' : '#fff')};
   box-shadow: ${(props) =>
     props.height !== 80 &&
     `rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,

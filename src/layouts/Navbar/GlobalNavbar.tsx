@@ -1,6 +1,7 @@
 'use client';
 
 import SOCIAL_ICONS from '@/constant/socialIcons';
+import { useThemeContext } from '@/contexts/theme.context';
 import { MaskIcon } from '@/styles/styled_components/components/Global.styled';
 import { checkRole } from '@/utils/isAuthorized';
 import { CookieValueTypes } from 'cookies-next';
@@ -15,6 +16,8 @@ import {
 } from './Navbar.styled';
 
 const GlobalNavbar = () => {
+  const { setThemeMode, themeMode } = useThemeContext();
+
   const [isAuth, setIsAuth] = useState<
     string | null | undefined | CookieValueTypes
   >('');
@@ -45,10 +48,14 @@ const GlobalNavbar = () => {
   }, [isAuth]);
 
   return (
-    <NavbarContainer height={navbarHeight}>
+    <NavbarContainer height={navbarHeight} themeMode={themeMode}>
       <div className="w-[120px] h-[50px] lg:w-[120px] lg:h-[60px]  relative">
         <Image
-          src={`/logos/tik_logo-black.svg`}
+          src={
+            themeMode
+              ? `/logos/tik_logo-light.svg`
+              : `/logos/tik_logo-black.svg`
+          }
           alt="TikTern Logo"
           className="object-contain "
           // sizes="200px"
@@ -70,6 +77,15 @@ const GlobalNavbar = () => {
               className=" hover:animate-pulse hover:cursor-pointer"
             />
           ))}
+          <div className="h-[15vh] flex flex-col items-center justify-center">
+            <input
+              id="toggle"
+              className="toggle"
+              type="checkbox"
+              checked={themeMode}
+              onChange={() => setThemeMode(!themeMode)}
+            />
+          </div>
         </IconsWrapper>
         {isAuth === 'user' ? (
           <SigninButton onClick={() => route.push('/user')}>
