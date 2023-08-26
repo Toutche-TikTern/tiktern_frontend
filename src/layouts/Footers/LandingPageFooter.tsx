@@ -12,7 +12,7 @@ const LandingPageFooter = ({ themeMode }: { themeMode: boolean }) => {
   return (
     <div className="flex flex-col items-center justify-center mt-[100px]">
       <h1
-        className={`text-xl   w-[90%] lg:w-[50%] text-justify lg:text-center ${
+        className={`text-xl   w-[90%] lg:w-[50%] text-center lg:text-center ${
           themeMode ? 'text-white/80' : 'text-black/80'
         }`}
       >

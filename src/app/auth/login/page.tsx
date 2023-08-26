@@ -113,7 +113,7 @@ const LoginPage: NextPage = () => {
     }
   };
   return (
-    <main className="flex flex-col items-center bg-white md:h-screen">
+    <section className="relative flex flex-col items-center bg-white h-screen p-[20px] md:p-0 ">
       {/* logo */}
       <ToastContainer
         position="bottom-right"
@@ -129,7 +129,7 @@ const LoginPage: NextPage = () => {
       />
       <div className="md:mt-[140px]">
         <Image
-          src={'/main-logo.png'}
+          src={'/logos/tik_logo-black.svg'}
           alt="TikTern Logo"
           width={200}
           height={100}
@@ -140,7 +140,7 @@ const LoginPage: NextPage = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center w-full gap-5"
+        className="flex flex-col w-full gap-5 mt-10 md:mt-0 md:items-center"
       >
         <input
           placeholder="Enter your email address"
@@ -149,7 +149,7 @@ const LoginPage: NextPage = () => {
           id="email"
           value={state.email}
           onChange={handleOnChange}
-          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
+          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-full md:w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
         />
         <div className="relative">
           <input
@@ -160,7 +160,7 @@ const LoginPage: NextPage = () => {
             autoComplete="off"
             value={state.password}
             onChange={handleOnChange}
-            className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
+            className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-full md:w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
           />
           {showPassword ? (
             <VisibilityIcon
@@ -176,7 +176,7 @@ const LoginPage: NextPage = () => {
         </div>
         <button
           type="submit"
-          className="text-white bg-blue-600 hover:drop-shadow-lg h-[60px] w-[400px] rounded-lg  text-[16px]  px-5"
+          className="text-white bg-blue-600 hover:drop-shadow-lg h-[60px]  w-full md:w-[400px] rounded-lg  text-[16px]  px-5"
           disabled={isLoading}
         >
           {isLoading ? 'Signing In...' : 'Sign In'}
@@ -186,12 +186,12 @@ const LoginPage: NextPage = () => {
         <Link href={'/auth/forgot-password'}>Forgot your password?</Link>
       </div>
       <div className="mt-16 text-lg">Don&apos;t have an account?</div>
-      <Link href={'/auth/signup'}>
-        <div className="bg-gray-50 h-[60px] w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
+      <Link href={'/auth/signup'} className="w-full">
+        <div className="bg-gray-50 h-[60px] w-full  md:w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
           Create a new account
         </div>
       </Link>
-    </main>
+    </section>
   );
 };
 

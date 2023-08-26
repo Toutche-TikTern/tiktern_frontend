@@ -65,11 +65,11 @@ const SignUpPage = () => {
     }
   };
   return (
-    <main className="flex flex-col items-center bg-white md:h-screen">
+    <main className="flex flex-col items-center h-screen bg-white p-[20px]">
       {/* logo */}
       <div className="md:mt-[140px]">
         <Image
-          src={'/main-logo.png'}
+          src={'/logos/tik_logo-black.svg'}
           alt="TikTern Logo"
           width={200}
           height={100}
@@ -80,7 +80,7 @@ const SignUpPage = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col items-center w-full gap-5"
+        className="flex flex-col items-center w-full gap-5 mt-10 md:mt-0"
       >
         <input
           placeholder="Enter your email address"
@@ -89,7 +89,7 @@ const SignUpPage = () => {
           id="email"
           value={state.email}
           onChange={handleOnChange}
-          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
+          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-full md:w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
         />
         <input
           placeholder="Enter your password"
@@ -99,19 +99,19 @@ const SignUpPage = () => {
           autoComplete="off"
           value={state.password}
           onChange={handleOnChange}
-          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
+          className="text-black outline-none focus:outline-none bg-slate-50 focus:drop-shadow-lg h-[60px] w-full md:w-[400px] rounded-lg border border-100 text-[16px] font-bold px-5 transition-all duration-300 ease-in-out"
         />
         <button
           type="submit"
-          className="text-white bg-blue-600 hover:drop-shadow-lg h-[60px] w-[400px] rounded-lg  text-[16px]  px-5"
+          className="text-white bg-blue-600 hover:drop-shadow-lg h-[60px] w-full md:w-[400px] rounded-lg  text-[16px]  px-5"
         >
           Sign Up
         </button>
       </form>
 
       <div className="mt-16 text-lg">Already have an account</div>
-      <Link href={'/auth/login'}>
-        <div className="bg-gray-50 h-[60px] w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
+      <Link href={'/auth/login'} className="w-full">
+        <div className="bg-gray-50 h-[60px] w-full md:w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
           Login
         </div>
       </Link>

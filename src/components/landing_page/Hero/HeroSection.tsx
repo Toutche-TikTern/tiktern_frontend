@@ -1,8 +1,5 @@
 'use client';
-import {
-  MaskIcon,
-  MixBlendImage,
-} from '@/styles/styled_components/components/Global.styled';
+import { MaskIcon } from '@/styles/styled_components/components/Global.styled';
 import { BigHeading } from '@/styles/styled_components/components/Text.styled';
 import Image from 'next/image';
 import React from 'react';
@@ -14,11 +11,11 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
         themeMode ? 'text-white' : 'text-black '
       }`}
     >
-      <div className="mt-5 ">
+      <div className="flex flex-col w-full mt-5">
         <BigHeading
           selected
           color={themeMode ? '#fff' : '#252525'}
-          className="text-center !text-[64px]"
+          className="!text-center !text-[32px] md:!text-[64px]"
         >
           Rider centric, Social Platform for Cycling
         </BigHeading>
@@ -62,13 +59,20 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
             <div className="text-[#8f00ff] text-[18px]">Ride & Earn</div>
           </div>
         </div>
-        <div className="my-[80px]">
+        <div className="mb-5 md:my-[80px] flex justify-center">
           <Image
             src={`/imgs/banner-img.png`}
             alt="My Image"
             width={800}
             height={600}
-            className="object-cover object-center mx-auto mix-blend-multiply "
+            className="hidden object-cover object-center mx-auto mix-blend-multiply md:block"
+          />
+          <Image
+            src={`/imgs/banner-img.png`}
+            alt="My Image"
+            width={400}
+            height={200}
+            className="object-cover object-center mix-blend-multiply md:hidden"
           />
         </div>
         <BigHeading className="px-5 mt-5 font-light text-center ">
@@ -98,7 +102,7 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
           cycling immersive, safer and collaborative like never before.
         </p>
 
-        <div className="flex items-center justify-center w-[35%] mx-auto gap-[120px] my-[100px] font-bold">
+        <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] my-[100px] font-bold">
           <div className="text-[#4d69ff] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
             Healthy <br /> Lifestyles
           </div>

@@ -34,5 +34,6 @@ export const TikternIsForCard = styled.div`
   }
   @media (max-width: ${WIDTH.mobileMax}) {
     width: 100%;
+    padding: 15px 15px 20px 15px;
   }
 `;
