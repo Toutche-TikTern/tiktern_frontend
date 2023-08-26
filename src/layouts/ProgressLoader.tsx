@@ -5,17 +5,12 @@ const ProgressLoader = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       {children}
-      return (
-      <>
-        {children}
-        <Next13ProgressBar
-          height="3px"
-          color="#d22dd6"
-          options={{ showSpinner: false }}
-          showOnShallow
-        />
-      </>
-      );
+      <Next13ProgressBar
+        height="3px"
+        color="#d22dd6"
+        options={{ showSpinner: false }}
+        showOnShallow
+      />
     </>
   );
 };
