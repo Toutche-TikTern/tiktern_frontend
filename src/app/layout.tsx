@@ -1,4 +1,5 @@
 import { ThemeContextProvider } from '@/contexts/theme.context';
+import ProgressLoader from '@/layouts/ProgressLoader';
 import ReduxProvider from '@/store/ReduxProvider';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.scss';
@@ -19,7 +20,9 @@ export default function RootLayout({
     <html>
       <body>
         <ReduxProvider>
-          <ThemeContextProvider>{children}</ThemeContextProvider>
+          <ThemeContextProvider>
+            <ProgressLoader>{children}</ProgressLoader>
+          </ThemeContextProvider>
         </ReduxProvider>
       </body>
     </html>
