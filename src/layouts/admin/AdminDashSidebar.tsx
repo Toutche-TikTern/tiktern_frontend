@@ -83,7 +83,12 @@ const AdminDashSidebar = () => {
       {/* links */}
       <div className="h-[50vh] px-[30px] pt-5 flex flex-col gap-2">
         {PATHS.map((item, index) => (
-          <SidebarLink key={index} link={item.link} name={item.name}>
+          <SidebarLink
+            key={index}
+            link={item.link}
+            name={item.name}
+            themeMode={themeMode}
+          >
             {item.icon()}
           </SidebarLink>
         ))}
