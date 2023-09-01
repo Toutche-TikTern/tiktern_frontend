@@ -22,10 +22,12 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
         </div>
       </div>
       <div
-        className={`mt-10 text-lg font-light text-center ${
+        className={`mt-10 text-2xl font-light text-center ${
           themeMode ? 'text-white/80' : 'text-gray-800 '
         }`}
       >
+        Transactions on TikTern are done with USD or platform native Tokens -
+        Tik & Tern. <br />
         <span className="underline decoration-appColor3">Tokens</span> and{' '}
         <span className="underline decoration-appColor4">NFT&apos;s</span> can
         be exchanged for other crypto tokens or traded
@@ -133,16 +135,16 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
         </p>
         <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[40px] px-10 !mt-10 !bg-app-2"
+          className="text-white text-xl  !rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
         >
-          Become the Foundation Member! Join the Whitelist Now
+          Join the Whitelist Now
         </Button>
       </div>
 
       {/* -------------------------------------------- */}
       <div className="flex flex-col items-center justify-center mt-[100px] ">
         <div
-          className={`text-2xl text-3xl font-bold text-center  ${
+          className={`text-3xl  font-bold text-center  ${
             themeMode ? 'text-white' : 'text-black/80'
           }`}
         >
@@ -216,16 +218,14 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           </p>
         </div>
       </div>
-
       {/* -------------------------------------------- */}
       <div
-        className={`flex flex-col items-center text-center p-10 mt-20 justify-center border  rounded-2xl mx-auto md:w-[55%] ${
+        className={`flex flex-col items-center text-center p-10 mt-[100px] justify-center border  rounded-2xl mx-auto md:w-[55%] ${
           themeMode ? 'border-white text-white' : 'border-black text-black'
         }`}
       >
-        <h1 className="text-2xl ">
-          Exclusive Privileges of a <br />
-          <span className="text-appColor2">Foundation Member</span>
+        <h1 className="text-3xl font-bold">
+          Exclusive Privileges of a Foundation Member
         </h1>
         <p className="mt-5 text-lg">
           Founding Member NFTs are transferable. FM Club will see new privileges
@@ -249,11 +249,11 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             <Image
               alt=""
               src="/imgs/exclusive-icon-2.png"
-              width={50}
-              height={50}
+              width={70}
+              height={70}
               className=""
             />
-            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
+            <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'} `}>
               Reduced resources to mint NFTs
             </p>
           </div>
@@ -297,8 +297,8 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             <Image
               alt=""
               src="/imgs/exclusive-icon-6.png"
-              width={50}
-              height={50}
+              width={70}
+              height={70}
               className=""
             />
             <p className={`${themeMode ? 'text-white/80' : 'text-gray-500'}`}>
@@ -306,12 +306,12 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             </p>
           </div>
         </div>
-        <Button
+        {/* <Button
           variant="contained"
-          className="text-white rounded-full bg-appColor2 hover:bg-appColor3 max-w-max max-h-max  px-10 !mt-10 mx-auto !bg-app-2"
+          className="text-white !rounded-full bg-appColor2 hover:bg-appColor3 max-w-max max-h-max  px-10 h-[60px] text-xl !mt-10 mx-auto !bg-app-2"
         >
           Join the Whitelist Now
-        </Button>
+        </Button> */}
         {/* -------------------------------------------------------------------- */}
         <h1 className="mt-20 text-xl font-bold">
           Becoming a Foundation Member{' '}
@@ -328,9 +328,9 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             />
             <Button
               variant="contained"
-              className="text-white rounded-full bg-appColor2 hover:bg-appColor3  max-h-max px-10 mt-10 mx-auto !bg-app-2"
+              className="text-white !rounded-full bg-appColor2 hover:bg-appColor3  max-h-max h-[60px] text-xl px-10 mt-10 mx-auto !bg-app-2"
             >
-              Become the Foundation Member! Join the Whitelist Now
+              Join the Whitelist Now
             </Button>
           </div>
         </div>

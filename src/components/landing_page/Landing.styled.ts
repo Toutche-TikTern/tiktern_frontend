@@ -6,13 +6,14 @@ import styled from 'styled-components';
 // Tiktern is For Section
 export const CardContainer = styled.div`
   display: flex;
+  justify-content: center;
   gap: 40px;
   padding-right: 10%;
   padding-left: 10%;
   @media (max-width: ${WIDTH.mobileMax}) {
     flex-direction: column;
-    padding-right: 2%;
-    padding-left: 2%;
+    /* padding-right: 2%;
+    padding-left: 2%; */
   }
 `;
 
@@ -21,7 +22,7 @@ export const TikternIsForCard = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${(props) => props.color};
-  width: 50%;
+  width: 30%;
   padding: 15px 15px 20px 30px;
   border-radius: 12px;
   color: #fff;

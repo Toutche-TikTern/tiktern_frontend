@@ -8,7 +8,7 @@ import '../styles/tailwind.css';
 export const metadata = {
   title: 'TikTern',
   description:
-    "TikTern's mission is to get more people onto bikes & E-bikes and help build a better world around us.",
+    "TikTern is a rider-powered (Web3) economy where riders own and monetise the content, activities, events they create. It's mission is to get more people onto bikes & eBikes and help build a better world around us.",
 };
 
 export default function RootLayout({

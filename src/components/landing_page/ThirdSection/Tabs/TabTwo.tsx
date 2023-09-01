@@ -7,7 +7,13 @@ const TabTwo = ({ themeMode }: Props) => {
   return (
     <div className="flex  justify-center w-[100%] lg:w-[70%] mx-auto gap-10  mt-10">
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
-        <Image alt="TikTern" src="/imgs/coins-2.png" width={200} height={200} />
+        {/* ----- */}
+        <Image
+          alt="TikTern"
+          src="/imgs/TikTern-FMNFT.png"
+          width={200}
+          height={200}
+        />
         <div className="mt-10 text-center">
           <h3
             className={`text-lg font-black lg:text-xl ${
@@ -27,7 +33,13 @@ const TabTwo = ({ themeMode }: Props) => {
         </div>
       </div>
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
-        <Image alt="TikTern" src="/imgs/coins-1.png" width={200} height={200} />
+        {/* --------- */}
+        <Image
+          alt="TikTern"
+          src="/imgs/TikTern-BikeNFT.png"
+          width={200}
+          height={200}
+        />
         <div className="mt-10 text-center">
           <h3
             className={`text-lg font-black lg:text-xl ${

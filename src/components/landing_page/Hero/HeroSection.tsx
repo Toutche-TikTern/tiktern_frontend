@@ -19,7 +19,7 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
         >
           Rider centric, Social Platform for Cycling
         </BigHeading>
-        <div className="flex flex-col items-center justify-center w-full gap-[60px] my-10 lg:mt-5 lg:flex-row">
+        <div className="flex flex-col items-center justify-center w-full gap-[20px] md:gap-[60px] my-10 lg:mt-5 lg:flex-row">
           <div className="flex items-center gap-3">
             <MaskIcon
               id="cycle"
@@ -92,30 +92,13 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
         </SectionHeading> */}
 
         <p
-          className={`text-center mx-auto  w-[90%]  lg:w-[60%]   text-sm lg:text-2xl my-[50px] ${
+          className={`text-center mx-auto  w-[90%]  lg:w-[60%]   text-sm lg:text-2xl mt-[50px] ${
             themeMode ? ' text-white/80' : 'text-gray-600'
           }`}
         >
-          Tiktern&apos;s features are shaped after extensive, ground-up research
-          with cyclists, cycling communities and industry professionals. It is
-          purpose-built to serve individuals, groups, and cycling clubs, making
-          cycling immersive, safer and collaborative like never before.
+          TikTern is a rider-powered (Web3) economy where riders own and
+          monetise the content, activities, events they create.
         </p>
-
-        <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] my-[100px] font-bold">
-          <div className="text-[#4d69ff] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
-            Healthy <br /> Lifestyles
-          </div>
-          <div className="text-[#04ec1b] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
-            Cleaner <br /> Air
-          </div>
-          <div className="text-[#d830dc] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
-            Reduced <br /> Congestion
-          </div>
-          <div className="text-[#ff4d00] text-[1.1rem] lg:text-[1.5rem] text-center w-1/2">
-            Happier <br /> People
-          </div>
-        </div>
       </div>
     </section>
   );

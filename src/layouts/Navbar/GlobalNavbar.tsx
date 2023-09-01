@@ -49,7 +49,7 @@ const GlobalNavbar = () => {
 
   return (
     <NavbarContainer height={navbarHeight} themeMode={themeMode}>
-      <div className="w-[120px] h-[50px] lg:w-[120px] lg:h-[60px]  relative">
+      <div className="w-[120px] h-[50px] lg:w-[180px] lg:h-[80px]  relative">
         <Image
           src={
             themeMode

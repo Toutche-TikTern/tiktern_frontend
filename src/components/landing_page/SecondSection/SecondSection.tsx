@@ -4,24 +4,25 @@ import {
   Para,
   SectionHeading,
 } from '@/styles/styled_components/components/Text.styled';
+import { Button } from '@mui/material';
 import React from 'react';
 import { CardContainer, TikternIsForCard } from '../Landing.styled';
 
 const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
   return (
-    <section>
-      <CardContainer className="md:!px-[50px]">
+    <section className="mt-[100px]">
+      <CardContainer className="">
         {CARD_DATA.map((item, index) => (
           <TikternIsForCard
             key={index}
             color={item.color}
-            className="!w-[60%] lg:!w-[50]"
+            // className="!w-[60%] lg:!w-[50]"
           >
             <div className="my-5 mb-8 text-2xl font-bold text-center">
               {item.title}
             </div>
             <div>
-              <ul className="flex flex-col gap-3 text-[20px] text-center text-white/80">
+              <ul className="flex flex-col gap-[5px] text-[20px] text-center text-white/80">
                 {item.desc.map((list, i) => (
                   <li key={i}>{list}</li>
                 ))}
@@ -36,32 +37,49 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
           themeMode ? ' text-white/80' : 'text-gray-600'
         }`}
       >
-        TikTern is a rider-powered (Web3) economy where riders own the content,
-        activities, events they create and decide on its monetisation.
+        Tiktern&apos;s features are shaped after extensive, ground-up research
+        with cyclists, cycling communities and industry professionals. It is
+        purpose-built to serve individuals, groups, and cycling clubs, making
+        cycling immersive, safer and collaborative like never before.
       </p>
-      <p
+      {/* <p
         className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]     mt-[50px] ${
           themeMode ? 'text-white/80' : 'text-black/80'
         }`}
       >
         Transactions on TikTern are done with regular currency (USD) or platform
         native Tokens - Tik & Tern.
-      </p>
+      </p> */}
       <p
         className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]  font-bold    mt-[50px] ${
           themeMode ? 'text-white/80' : 'text-black/80'
         }`}
       >
-        It pays to ride on TikTern. All one needs is a TikTern Bike (virtual
-        bike), download the App and start riding to earn Tik tokens!
+        It pays to ride on TikTern. Download the app, get a TikTern Bike
+        (virtual bike), and start riding to earn Tik tokens!
       </p>
+      <p
+        className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]      mt-[50px] ${
+          themeMode ? 'text-white/80' : 'text-black/80'
+        }`}
+      >
+        Join the whitelist and be the first to be informed of the launch.
+      </p>{' '}
+      <div className="flex justify-center w-full">
+        <Button
+          variant="contained"
+          className="text-white text-xl rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
+        >
+          Join the Whitelist Now
+        </Button>
+      </div>
     </section>
   );
 };
 
 const CARD_DATA = [
   {
-    title: 'Cyclists',
+    title: 'TikTern for Cyclists',
     desc: [
       'Navigation',
       'Trails',
@@ -75,7 +93,7 @@ const CARD_DATA = [
     color: '#4d69ff',
   },
   {
-    title: 'Cycling Clubs',
+    title: 'TikTern for Cycling Clubs',
     desc: [
       'Club Profile',
       'Riding Events',
@@ -83,36 +101,9 @@ const CARD_DATA = [
       'Trails',
       'Promotions',
       // 'Mint TikTern Bikes (NFT) for Self, Rent or Sell',
-      'Mint Trail NFT',
+      'Trail NFT',
     ],
     color: '#bb4b6f',
-  },
-  {
-    title: 'Tour Operators',
-    desc: [
-      'Operator Profile​',
-      'Riding Tours​',
-      'Trails',
-      'Promotions',
-      'Ride-to-Earn',
-      'TikTern Bikes NFT',
-      'Trail NFT',
-    ],
-    color: '#ba9d0b',
-  },
-  {
-    title: 'Shared Bikes',
-    desc: [
-      'Navigation',
-      'Trails',
-      'Grow Users',
-      // 'Riding Events',
-      'Gamified Events',
-      'Ride-to-Earn',
-      'TikTern Bikes NFT',
-      'Trail NFT',
-    ],
-    color: '#ff4d00',
   },
 ];
 

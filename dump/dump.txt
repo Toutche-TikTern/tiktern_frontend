@@ -1,0 +1,27 @@
+  // {
+  //   title: 'Tour Operators',
+  //   desc: [
+  //     'Operator Profile​',
+  //     'Riding Tours​',
+  //     'Trails',
+  //     'Promotions',
+  //     'Ride-to-Earn',
+  //     'TikTern Bikes NFT',
+  //     'Trail NFT',
+  //   ],
+  //   color: '#0bba3d',
+  // },
+  // {
+  //   title: 'Shared Bikes',
+  //   desc: [
+  //     'Navigation',
+  //     'Trails',
+  //     'Grow Users',
+  //     // 'Riding Events',
+  //     'Gamified Events',
+  //     'Ride-to-Earn',
+  //     'TikTern Bikes NFT',
+  //     'Trail NFT',
+  //   ],
+  //   color: '#ff4d00',
+  // },

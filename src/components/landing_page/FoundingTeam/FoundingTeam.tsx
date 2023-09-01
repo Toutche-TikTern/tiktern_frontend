@@ -27,8 +27,8 @@ const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl ">Raghu Kerakatty</h1>
-          <p>Founder</p>
+          <h1 className="mt-5 text-xl text-center">Raghu Kerakatty</h1>
+          <p className="text-center">Founder</p>
         </div>
         <div className="p-5 border rounded-3xl w-[300p h-[450px]">
           <div className="relative w-[250px] h-[300px] rounded-2xl">
@@ -39,8 +39,8 @@ const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl ">Satayakam Chakraverty</h1>
-          <p>Founder</p>
+          <h1 className="mt-5 text-xl text-center">Satayakam Chakraverty</h1>
+          <p className="text-center">Founder</p>
         </div>
         <div className="p-5 border rounded-3xl w-[300px h-[450px]">
           <div className="relative w-[250px] h-[300px] rounded-2xl">
@@ -51,8 +51,8 @@ const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl ">Abishek Singh Sony</h1>
-          <p>
+          <h1 className="mt-5 text-xl text-center">Abishek Singh Sony</h1>
+          <p className="text-center">
             Founding Member <br /> Blockchain Developer
           </p>
         </div>
@@ -66,8 +66,8 @@ const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
               className="object-cover object-center rounded-2xl"
             />
           </div>
-          <h1 className="mt-5 text-xl ">Mohd Ayan Ansari</h1>
-          <p>
+          <h1 className="mt-5 text-xl text-center">Mohd Ayan Ansari</h1>
+          <p className="text-center">
             Founding Member <br /> FullStack Developer
           </p>
         </div>
