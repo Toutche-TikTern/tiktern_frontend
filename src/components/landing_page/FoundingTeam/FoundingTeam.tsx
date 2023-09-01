@@ -6,7 +6,7 @@ const FoundingTeam = ({ themeMode }: { themeMode: boolean }) => {
   return (
     <div className={`${themeMode ? 'text-white' : 'text-black'}`}>
       <div
-        className={`text-2xl font-bold text-center lg:text-3xl  mt-[100px] ${
+        className={`text-2xl font-bold text-center lg:text-3xl   ${
           themeMode ? 'text-white' : 'text-black'
         }`}
       >

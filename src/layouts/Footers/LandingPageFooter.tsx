@@ -23,7 +23,7 @@ const LandingPageFooter = ({ themeMode }: { themeMode: boolean }) => {
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
       </h1>
-      <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] my-[100px] font-bold">
+      <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] mt-[100px] font-bold">
         <div className="text-[#4d69ff] text-2xl text-center w-1/2">
           <SportsGymnasticsIcon className="w-[40px] h-[40px] mb-[10px]" />
           Healthy <br /> Lifestyles

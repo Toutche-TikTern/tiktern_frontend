@@ -259,7 +259,7 @@ const LiveActivitiesTable = (props: Props) => {
                             <div className="flex items-center gap-2">
                               <label
                                 htmlFor={`image-${item._id}`}
-                                className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer"
+                                className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer font-bold"
                               >
                                 <input
                                   hidden
@@ -283,6 +283,11 @@ const LiveActivitiesTable = (props: Props) => {
                                 // @ts-ignore
                                 onClick={() => handleClick(item._id)}
                                 disabled={isActivitySubmitted}
+                                className={`${
+                                  imageFile[item._id]
+                                    ? 'rounded-xl text-black font-bold bg-green-400 h-[40px] w-[150px]'
+                                    : ''
+                                }`}
                               >
                                 Upload
                               </button>

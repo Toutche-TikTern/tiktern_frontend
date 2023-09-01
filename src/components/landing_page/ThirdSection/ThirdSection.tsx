@@ -135,7 +135,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
         </p>
         <Button
           variant="contained"
-          className="text-white text-xl  !rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
+          className="!text-white !text-xl  !rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
         >
           Join the Whitelist Now
         </Button>
@@ -328,7 +328,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             />
             <Button
               variant="contained"
-              className="text-white !rounded-full bg-appColor2 hover:bg-appColor3  max-h-max h-[60px] text-xl px-10 mt-10 mx-auto !bg-app-2"
+              className="!text-white !rounded-full !bg-appColor2 hover:bg-appColor3  max-h-max !h-[60px] !text-xl px-10 mt-10 mx-auto !bg-app-2"
             >
               Join the Whitelist Now
             </Button>
