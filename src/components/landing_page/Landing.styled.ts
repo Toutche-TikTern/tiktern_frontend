@@ -11,6 +11,8 @@ export const CardContainer = styled.div`
   padding-left: 10%;
   @media (max-width: ${WIDTH.mobileMax}) {
     flex-direction: column;
+    padding-right: 2%;
+    padding-left: 2%;
   }
 `;
 

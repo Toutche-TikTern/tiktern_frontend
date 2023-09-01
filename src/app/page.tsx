@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className={`relative ${themeMode ? 'bg-dark-600' : ' bg-white'}`}>
       <GlobalNavbar />
-      <div className="p-[20px]">
+      <div className=" lg:p-[20px]">
         <HeroSection themeMode={themeMode} />
         <SecondSection themeMode={themeMode} />
         <ThirdSection themeMode={themeMode} />

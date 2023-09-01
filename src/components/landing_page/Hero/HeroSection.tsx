@@ -15,7 +15,7 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
         <BigHeading
           selected
           color={themeMode ? '#fff' : '#252525'}
-          className="!text-center !text-[32px] md:!text-[64px]"
+          className="!text-center !text-[32px] md:!text-[44px] lg:!text-[54px] xl:!text-[64px]"
         >
           Rider centric, Social Platform for Cycling
         </BigHeading>
@@ -59,7 +59,7 @@ const HeroSection = ({ themeMode }: { themeMode: boolean }) => {
             <div className="text-[#8f00ff] text-[18px]">Ride & Earn</div>
           </div>
         </div>
-        <div className="mb-5 md:my-[80px] flex justify-center">
+        <div className="mb-5 md:my-[50px] flex justify-center">
           <Image
             src={`/imgs/banner-img.png`}
             alt="My Image"

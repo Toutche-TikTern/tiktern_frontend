@@ -10,9 +10,13 @@ import { CardContainer, TikternIsForCard } from '../Landing.styled';
 const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
   return (
     <section>
-      <CardContainer>
+      <CardContainer className="md:!px-[50px]">
         {CARD_DATA.map((item, index) => (
-          <TikternIsForCard key={index} color={item.color}>
+          <TikternIsForCard
+            key={index}
+            color={item.color}
+            className="!w-[60%] lg:!w-[50]"
+          >
             <div className="my-5 mb-8 text-2xl font-bold text-center">
               {item.title}
             </div>

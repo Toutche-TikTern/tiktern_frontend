@@ -113,7 +113,7 @@ const LoginPage: NextPage = () => {
     }
   };
   return (
-    <section className="relative flex flex-col items-center bg-white h-screen p-[20px] md:p-0 ">
+    <section className="relative flex flex-col justify-center items-center bg-white h-screen p-[20px] md:p-0 ">
       {/* logo */}
       <ToastContainer
         position="bottom-right"
@@ -186,11 +186,14 @@ const LoginPage: NextPage = () => {
         <Link href={'/auth/forgot-password'}>Forgot your password?</Link>
       </div>
       <div className="mt-16 text-lg">Don&apos;t have an account?</div>
-      <Link href={'/auth/signup'} className="w-full">
-        <div className="bg-gray-50 h-[60px] w-full  md:w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
-          Create a new account
-        </div>
-      </Link>
+      <div className="flex justify-center w-full">
+        <Link
+          href={'/auth/signup'}
+          className="bg-gray-50 h-[60px] w-full  md:w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4"
+        >
+          <div className="">Create a new account</div>
+        </Link>
+      </div>
     </section>
   );
 };
