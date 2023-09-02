@@ -13,7 +13,16 @@ const TabOne = ({ themeMode }: Props) => {
           themeMode ? 'text-bleck' : 'text-white'
         }`}
       >
-        <Image alt="TikTern" src="/imgs/coins-1.png" width={200} height={200} />
+        <div
+          className={`relative w-[150px] h-[150px] md:w-[200px] md:h-[200px] `}
+        >
+          <Image
+            alt="TikTern"
+            src="/imgs/coins-1.png"
+            fill
+            className={`object-cover`}
+          />
+        </div>
         <div className="mt-10 text-center">
           <h3
             className={`text-lg font-black lg:text-xl ${
@@ -36,7 +45,16 @@ const TabOne = ({ themeMode }: Props) => {
         </div>
       </div>
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
-        <Image alt="TikTern" src="/imgs/coins-2.png" width={200} height={200} />
+        <div
+          className={`relative w-[150px] h-[150px] md:w-[200px] md:h-[200px] `}
+        >
+          <Image
+            alt="TikTern"
+            src="/imgs/coins-2.png"
+            fill
+            className={`object-cover`}
+          />
+        </div>
         <div className="mt-10 text-center">
           <h3
             className={`text-lg font-black lg:text-xl ${

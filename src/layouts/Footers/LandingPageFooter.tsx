@@ -24,19 +24,19 @@ const LandingPageFooter = ({ themeMode }: { themeMode: boolean }) => {
         Sustainable Living and Healthy Lifestyles
       </h1>
       <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] mt-[100px] font-bold">
-        <div className="text-[#4d69ff] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#4d69ff] text-2xl text-center w-1/2">
           <SportsGymnasticsIcon className="w-[40px] h-[40px] mb-[10px]" />
           Healthy <br /> Lifestyles
         </div>
-        <div className="text-[#04ec1b] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#04ec1b] text-2xl text-center w-1/2">
           <AirIcon className="w-[40px] h-[40px] mb-[10px]" />
           Cleaner <br /> Air
         </div>
-        <div className="text-[#d830dc] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#d830dc] text-2xl text-center w-1/2">
           <DirectionsCarIcon className="w-[40px] h-[40px] mb-[10px]" />
           Reduced <br /> Congestion
         </div>
-        <div className="text-[#ff4d00] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#ff4d00] text-2xl text-center w-1/2">
           <EmojiEmotionsIcon className="w-[40px] h-[40px] mb-[10px]" />
           Happier <br /> People
         </div>

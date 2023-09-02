@@ -12,7 +12,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
       <SectionHeading
         selected
         color={themeMode ? 'white' : 'black'}
-        className="!text-3xl !uppercase  text-center"
+        className="!text-2xl md:!text-3xl   text-center"
       >
         Tokenomics
       </SectionHeading>
@@ -22,18 +22,20 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
         </div>
       </div>
       <div
-        className={`mt-10 text-2xl font-light text-center ${
+        className={`mt-10 text-lg md:text-2xl font-light text-center ${
           themeMode ? 'text-white/80' : 'text-gray-800 '
         }`}
       >
         Transactions on TikTern are done with USD or platform native Tokens -
-        Tik & Tern. <br />
+        Tik & Tern.
+        <br />
+        <br />
         <span className="underline decoration-appColor3">Tokens</span> and{' '}
         <span className="underline decoration-appColor4">NFT&apos;s</span> can
         be exchanged for other crypto tokens or traded
       </div>
       <SectionHeading
-        className={`mt-[100px] mb-[50px] text-center !text-3xl  ${
+        className={`mt-[100px] mb-[50px] text-center !text-2xl md:!text-3xl   ${
           themeMode ? 'text-white' : 'text-black'
         }`}
       >
@@ -90,14 +92,14 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
               themeMode ? 'text-white' : 'text-black'
             }`}
           >
-            <h1 className="text-2xl text-center">
+            <h1 className="text-lg text-center md:text-2xl">
               The{' '}
               <span className="font-bold text-appColor2">Token Minting</span>{' '}
               and <span className="font-bold text-appColor2">NFT Minting</span>{' '}
               days will be announced soon.
             </h1>
             <p
-              className={`text-center ${
+              className={`text-center text-sm md:text-lg ${
                 themeMode ? 'text-white/80' : 'text-gray-600'
               }`}
             >
@@ -110,7 +112,9 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
             src="/imgs/cycle-img-1.png"
             width={800}
             height={800}
-            className={`mt-[-30px] ${themeMode ? 'mix-blend-multiply' : ''}`}
+            className={` mt-5 md:mt-0 ${
+              themeMode ? 'mix-blend-multiply mt-5' : 'md:mt-[-30px]'
+            }`}
           />
         </section>
       </div>
@@ -118,7 +122,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
       {/* Foundation member fm club */}
       <div className="flex flex-col items-center justify-center mt-[100px] ">
         <div
-          className={`text-2xl text-3xl font-bold text-center  ${
+          className={`!text-2xl md:!text-3xl font-bold text-center  ${
             themeMode ? 'text-white' : 'text-black/80'
           }`}
         >
@@ -133,10 +137,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           laying the foundational blocks of the network and inherit an exclusive
           set of privileges in return.
         </p>
-        <Button
-          variant="contained"
-          className="!text-white !text-xl  !rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
-        >
+        <Button variant="contained" className="mt-10 custom-btn">
           Join the Whitelist Now
         </Button>
       </div>
@@ -144,7 +145,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
       {/* -------------------------------------------- */}
       <div className="flex flex-col items-center justify-center mt-[100px] ">
         <div
-          className={`text-3xl  font-bold text-center  ${
+          className={`!text-2xl md:!text-3xl  font-bold text-center  ${
             themeMode ? 'text-white' : 'text-black/80'
           }`}
         >
@@ -224,10 +225,10 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           themeMode ? 'border-white text-white' : 'border-black text-black'
         }`}
       >
-        <h1 className="text-3xl font-bold">
+        <h1 className="!text-2xl md:!text-3xl font-bold">
           Exclusive Privileges of a Foundation Member
         </h1>
-        <p className="mt-5 text-lg">
+        <p className="mt-5 md:text-lg">
           Founding Member NFTs are transferable. FM Club will see new privileges
           being added and some existing privileges being modified, from time to
           time
@@ -326,10 +327,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
               height={200}
               className="mt-10 rounded-lg"
             />
-            <Button
-              variant="contained"
-              className="!text-white !rounded-full !bg-appColor2 hover:bg-appColor3  max-h-max !h-[60px] !text-xl px-10 mt-10 mx-auto !bg-app-2"
-            >
+            <Button variant="contained" className="mt-10 custom-btn">
               Join the Whitelist Now
             </Button>
           </div>

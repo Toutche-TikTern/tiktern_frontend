@@ -14,4 +14,8 @@
   .user-profile_input {
     @apply h-[50px] outline-none rounded-[12px] bg-transparent ring-1 ring-offset-1 px-[10px] border;
   }
+
+  .custom-btn {
+    @apply !text-white !text-base md:!text-xl !rounded-[16px] !bg-app-2 hover:!bg-app-3  w-[80%] lg:w-max  lg:!h-[60px] px-10;
+  }
 }

@@ -66,10 +66,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
         Join the whitelist and be the first to be informed of the launch.
       </p>{' '}
       <div className="flex justify-center w-full">
-        <Button
-          variant="contained"
-          className="!text-white !text-xl !rounded-full bg-app-2 hover:bg-app-3  w-[80%] lg:w-max  lg:!h-[60px] px-10 !mt-10"
-        >
+        <Button variant="contained" className="custom-btn !mt-10">
           Join the Whitelist Now
         </Button>
       </div>
