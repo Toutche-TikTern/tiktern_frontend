@@ -33,7 +33,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
       </CardContainer>
       {/* Section 2 */}
       <p
-        className={`mx-auto text-center w-[90%] lg:w-[60%] mt-[100px]  text-2xl ${
+        className={`mx-auto text-center w-[90%] lg:w-[60%] mt-[100px]  text-lg md:text-2xl ${
           themeMode ? ' text-white/80' : 'text-gray-600'
         }`}
       >
@@ -51,7 +51,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
         native Tokens - Tik & Tern.
       </p> */}
       <p
-        className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]  font-bold    mt-[50px] ${
+        className={`mx-auto text-center text-lg md:text-2xl w-[90%] lg:w-[60%]  font-bold    mt-[50px] ${
           themeMode ? 'text-white/80' : 'text-black/80'
         }`}
       >
@@ -59,7 +59,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
         (virtual bike), and start riding to earn Tik tokens!
       </p>
       <p
-        className={`mx-auto text-center text-2xl w-[90%] lg:w-[60%]      mt-[50px] ${
+        className={`mx-auto text-center text-lg md:text-2xl w-[90%] lg:w-[60%]      mt-[50px] ${
           themeMode ? 'text-white/80' : 'text-black/80'
         }`}
       >
@@ -68,7 +68,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
       <div className="flex justify-center w-full">
         <Button
           variant="contained"
-          className="text-white text-xl rounded-full bg-appColor2 hover:bg-appColor3  w-[80%] lg:w-max  lg:h-[60px] px-10 !mt-10 !bg-app-2"
+          className="!text-white !text-xl !rounded-full bg-app-2 hover:bg-app-3  w-[80%] lg:w-max  lg:!h-[60px] px-10 !mt-10"
         >
           Join the Whitelist Now
         </Button>

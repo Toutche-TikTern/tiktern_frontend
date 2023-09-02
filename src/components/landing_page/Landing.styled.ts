@@ -10,7 +10,9 @@ export const CardContainer = styled.div`
   gap: 40px;
   padding-right: 10%;
   padding-left: 10%;
+  padding-bottom: 20px;
   @media (max-width: ${WIDTH.mobileMax}) {
+    padding-bottom: 20px;
     flex-direction: column;
     /* padding-right: 2%;
     padding-left: 2%; */

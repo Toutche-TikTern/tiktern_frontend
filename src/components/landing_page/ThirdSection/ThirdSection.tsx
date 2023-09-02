@@ -347,7 +347,9 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
       <div className="flex justify-center w-full mt-10">
         <Image
           alt=""
-          src="/imgs/roadd.png"
+          src={
+            !themeMode ? '/imgs/roadmap-white.svg' : '/imgs/roadmap-dark.svg'
+          }
           width={1200}
           height={200}
           className="mt-10 rounded-xl"
