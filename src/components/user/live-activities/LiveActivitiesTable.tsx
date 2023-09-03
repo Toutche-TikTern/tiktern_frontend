@@ -169,7 +169,7 @@ const LiveActivitiesTable = (props: Props) => {
   };
 
   return (
-    <div className="py-[20px] px-[40px] mt-10">
+    <div className="py-[20px] px-[5px] md:px-[40px] mt-10">
       <div
         className={`text-2xl font-bold ${
           themeMode ? 'text-app-3' : 'text-app-1'

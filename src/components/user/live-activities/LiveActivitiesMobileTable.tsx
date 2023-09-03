@@ -18,14 +18,14 @@ const LiveActivitiesMobileTable = ({
 }) => {
   return (
     <div className="block md:hidden">
-      <Table>
+      <Table className="!text-xs">
         <Thead>
           <Tr>
-            <Th>Date</Th>
-            <Th>Activity</Th>
-            <Th>Tiks to Earn</Th>
-            <Th>Terns to Earn</Th>
-            <Th>Completion Proof</Th>
+            <Th className="!text-xs">Date</Th>
+            <Th className="!text-xs">Activity</Th>
+            <Th className="!text-xs">Tiks to Earn</Th>
+            <Th className="!text-xs">Terns to Earn</Th>
+            <Th className="!text-xs">Completion Proof</Th>
           </Tr>
         </Thead>
         <Tbody>
@@ -63,7 +63,7 @@ const LiveActivitiesMobileTable = ({
                         <div className="flex items-center gap-2">
                           <label
                             htmlFor={`image-${item._id}`}
-                            className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer font-bold"
+                            className="bg-app-2 rounded-xl w-[100px] h-[30px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer font-bold"
                           >
                             <input
                               hidden
@@ -87,7 +87,7 @@ const LiveActivitiesMobileTable = ({
                             disabled={isActivitySubmitted}
                             className={`${
                               imageFile[item._id]
-                                ? 'rounded-xl text-black font-bold bg-green-400 h-[40px] w-[150px]'
+                                ? 'rounded-xl text-black font-bold bg-green-400 h-[30px] w-[100px]'
                                 : ''
                             }`}
                           >

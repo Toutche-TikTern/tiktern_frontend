@@ -120,7 +120,7 @@ const ActivityArchivePage = () => {
             Loading...
           </div>
         ) : (
-          <Table>
+          <Table className="!text-xs">
             <Thead>
               <Tr>
                 <Th>Activity Name</Th>

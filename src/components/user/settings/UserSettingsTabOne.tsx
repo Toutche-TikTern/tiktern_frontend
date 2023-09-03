@@ -34,7 +34,7 @@ const UserSettingsTabOne = ({ themeMode, currUser, isLoading }: Props) => {
                 </div>
               </div>
               <div
-                className={`flex flex-col gap-5 text-xl ${
+                className={`flex flex-col gap-5 text-sm md:text-xl ${
                   themeMode ? 'text-black' : 'text-white'
                 } items-center mt-[50px]`}
               >
