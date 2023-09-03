@@ -40,7 +40,7 @@ const UserSettingsTabTwo: React.FC<UserSettingsTabTwoProps> = ({
   };
 
   return (
-    <div className="w-[90%] md:w-[50%] p-[5px] md:p-[20px]">
+    <div className="w-[100%] md:w-[50%] p-[40px] md:p-[20px]">
       <form onSubmit={handleSubmit}>
         <h1 className="font-bold ">Update my details</h1>
         <div className="flex flex-col gap-5 mt-5">

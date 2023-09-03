@@ -1,6 +1,7 @@
 import { ThemeContextProvider } from '@/contexts/theme.context';
 import ProgressLoader from '@/layouts/ProgressLoader';
 import ReduxProvider from '@/store/ReduxProvider';
+import 'react-super-responsive-table/dist/SuperResponsiveTableStyle.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.scss';
 import '../styles/tailwind.css';

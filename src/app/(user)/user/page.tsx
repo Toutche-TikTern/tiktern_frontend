@@ -8,9 +8,9 @@ type Props = {};
 
 const UserDashboard = (props: Props) => {
   return (
-    <main className="flex-1">
+    <main className="flex-1 ">
       <UserNavbar title="My Dashboard" />
-      <div className="h-[calc(100vh-80px)] overflow-y-auto">
+      <div className="h-[calc(100vh-80px)] overflow-y-auto pb-[100px] md:pb-0 ">
         <WelcomeSection />
         <LiveActivitiesTable />
       </div>

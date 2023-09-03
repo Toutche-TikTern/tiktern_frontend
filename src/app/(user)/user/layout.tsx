@@ -1,5 +1,6 @@
 'use client';
 import { useThemeContext } from '@/contexts/theme.context';
+import BottomNavbar from '@/layouts/user/BottomNavbar';
 import UserSidebar from '@/layouts/user/UserSidebar';
 import DashboardWrapper from '@/styles/styled_components/layouts/DashboardWrapper.styled';
 
@@ -13,8 +14,14 @@ export default function UserDashboardLayout({
   return (
     <DashboardWrapper themeMode={themeMode}>
       {/* Include shared UI here e.g. a header or sidebar */}
-      <UserSidebar />
+      <div className="hidden md:block">
+        <UserSidebar />
+      </div>
       {children}
+      {/* Bottom navbar */}
+      <div className="relative md:hidden ">
+        <BottomNavbar themeMode={themeMode} />
+      </div>
     </DashboardWrapper>
   );
 }

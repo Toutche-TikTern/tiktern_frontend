@@ -24,7 +24,7 @@ const UserNavbar = ({ title }: { title: string }) => {
         themeMode ? 'bg-white text-black' : 'bg-dark-800'
       }  justify-between w-full h-[80px] border-b border-white/10 drop-shadow`}
     >
-      <div className="text-2xl font-light">{title}</div>
+      <div className="text-lg font-light md:text-2xl">{title}</div>
       <div className="flex items-center gap-5">
         <NavTikTern />
         <Tooltip title="Logout" className="">

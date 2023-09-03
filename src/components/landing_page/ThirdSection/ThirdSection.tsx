@@ -137,7 +137,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           laying the foundational blocks of the network and inherit an exclusive
           set of privileges in return.
         </p>
-        <Button variant="contained" className="mt-10 custom-btn">
+        <Button variant="contained" className="!mt-10 custom-btn">
           Join the Whitelist Now
         </Button>
       </div>
@@ -327,7 +327,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
               height={200}
               className="mt-10 rounded-lg"
             />
-            <Button variant="contained" className="mt-10 custom-btn">
+            <Button variant="contained" className="!mt-10 custom-btn">
               Join the Whitelist Now
             </Button>
           </div>

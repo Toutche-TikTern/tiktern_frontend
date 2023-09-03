@@ -203,7 +203,7 @@ const UserSettingsPage = () => {
             ? // @ts-ignore
               user?.fname
             : 'User'
-        } Profile Settings`}
+        } Settings`}
       />
       <ToastContainer
         position="bottom-right"

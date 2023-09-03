@@ -5,6 +5,7 @@ import axios from 'axios';
 import { getCookie } from 'cookies-next';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
+import LiveActivitiesMobileTable from './LiveActivitiesMobileTable';
 type Props = {};
 
 type Activity = {
@@ -188,118 +189,127 @@ const LiveActivitiesTable = (props: Props) => {
             </h1>
           </div>
         ) : (
-          <div>
-            {/* live activity goes here --> */}
-            {/* activity header */}
-            <div
-              className={`flex w-full font-bold h-[40px] gap-2 ${
-                themeMode ? 'text-black' : 'text-white'
-              }`}
-            >
-              <div className="w-[15%] flex ">Date</div>
-              <div className="flex flex-1 ">Activity</div>
-              <div className="w-[12%] flex items-center justify-center">
-                Tiks to Earn
+          <>
+            <LiveActivitiesMobileTable
+              activityData={activityData}
+              currUserActivity={currUserActivity}
+              handleClick={handleClick}
+              imageFile={imageFile}
+              handleFileChange={handleFileChange}
+            />
+            <div className="hidden md:block">
+              {/* live activity goes here --> */}
+              {/* activity header */}
+              <div
+                className={`flex w-full font-bold h-[40px] gap-2 ${
+                  themeMode ? 'text-black' : 'text-white'
+                }`}
+              >
+                <div className="w-[15%] flex ">Date</div>
+                <div className="flex flex-1 ">Activity</div>
+                <div className="w-[12%] flex items-center justify-center">
+                  Tiks to Earn
+                </div>
+                <div className="w-[12%] flex items-center justify-center">
+                  Terns to Earn
+                </div>
+                <div className="w-[20%] flex items-center justify-center">
+                  Completion Proof
+                </div>
               </div>
-              <div className="w-[12%] flex items-center justify-center">
-                Terns to Earn
-              </div>
-              <div className="w-[20%] flex items-center justify-center">
-                Completion Proof
-              </div>
-            </div>
 
-            <div className="flex flex-col w-full gap-5 mt-5">
-              {activityData !== null &&
-              activityData !== undefined &&
-              activityData.length > 0
-                ? activityData.map((item, index) => {
-                    // @ts-ignore
-                    const expiry = moment(item?.activity_expiry).format(
-                      'MMMM Do YYYY'
-                    );
-                    // const isActivitySubmitted = submittedActivities.includes(
-                    //   item._id
-                    // );
-                    const isActivitySubmitted = currUserActivity.some(
-                      (completedActivity) =>
-                        // @ts-ignore
-                        completedActivity.activity_id === item._id
-                    );
-                    return (
-                      <div
-                        key={index}
-                        className={`flex gap-2 ${
-                          themeMode ? 'text-black' : 'text-white'
-                        }`}
-                      >
-                        {/* date */}
-                        <div className="w-[15%] flex items-center">
-                          {expiry}
+              <div className="flex flex-col w-full gap-5 mt-5">
+                {activityData !== null &&
+                activityData !== undefined &&
+                activityData.length > 0
+                  ? activityData.map((item, index) => {
+                      // @ts-ignore
+                      const expiry = moment(item?.activity_expiry).format(
+                        'MMMM Do YYYY'
+                      );
+                      // const isActivitySubmitted = submittedActivities.includes(
+                      //   item._id
+                      // );
+                      const isActivitySubmitted = currUserActivity.some(
+                        (completedActivity) =>
+                          // @ts-ignore
+                          completedActivity.activity_id === item._id
+                      );
+                      return (
+                        <div
+                          key={index}
+                          className={`flex gap-2 ${
+                            themeMode ? 'text-black' : 'text-white'
+                          }`}
+                        >
+                          {/* date */}
+                          <div className="w-[15%] flex items-center">
+                            {expiry}
+                          </div>
+                          {/* activity name or desc */}
+                          <div className="flex items-center flex-1 ">
+                            {/* @ts-ignore */}
+                            {item.activity_desc}
+                          </div>
+                          {/* tern earned */}
+                          <div className="w-[12%] flex text-center items-center justify-center">
+                            {/* @ts-ignore */}
+                            {item.tiks_reward}
+                          </div>
+                          <div className="w-[12%] flex text-center items-center justify-center">
+                            {/* @ts-ignore */}
+                            {item.terns_reward}
+                          </div>
+                          {/* proof of completion */}
+                          <div className="w-[20%] flex justify-center items-center">
+                            {isActivitySubmitted ? (
+                              <div>Uploaded</div>
+                            ) : (
+                              <div className="flex items-center gap-2">
+                                <label
+                                  htmlFor={`image-${item._id}`}
+                                  className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer font-bold"
+                                >
+                                  <input
+                                    hidden
+                                    type="file"
+                                    name={`image-${item._id}`}
+                                    id={`image-${item._id}`}
+                                    onChange={(e) =>
+                                      handleFileChange(e, item._id)
+                                    }
+                                  />
+                                  {imageFile !== null &&
+                                  // @ts-ignore
+                                  imageFile[item._id] &&
+                                  // @ts-ignore
+                                  imageFile[item._id]?.name
+                                    ? // @ts-ignore
+                                      imageFile[item._id]?.name
+                                    : 'Choose Image'}
+                                </label>
+                                <button
+                                  // @ts-ignore
+                                  onClick={() => handleClick(item._id)}
+                                  disabled={isActivitySubmitted}
+                                  className={`${
+                                    imageFile[item._id]
+                                      ? 'rounded-xl text-black font-bold bg-green-400 h-[40px] w-[150px]'
+                                      : ''
+                                  }`}
+                                >
+                                  Upload
+                                </button>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        {/* activity name or desc */}
-                        <div className="flex items-center flex-1 ">
-                          {/* @ts-ignore */}
-                          {item.activity_desc}
-                        </div>
-                        {/* tern earned */}
-                        <div className="w-[12%] flex text-center items-center justify-center">
-                          {/* @ts-ignore */}
-                          {item.tiks_reward}
-                        </div>
-                        <div className="w-[12%] flex text-center items-center justify-center">
-                          {/* @ts-ignore */}
-                          {item.terns_reward}
-                        </div>
-                        {/* proof of completion */}
-                        <div className="w-[20%] flex justify-center items-center">
-                          {isActivitySubmitted ? (
-                            <div>Uploaded</div>
-                          ) : (
-                            <div className="flex items-center gap-2">
-                              <label
-                                htmlFor={`image-${item._id}`}
-                                className="bg-app-2 rounded-xl w-[150px] h-[40px] text-white/80 hover:bg-app-3 transition-all ease-in-out duration-300 flex justify-center items-center !cursor-pointer font-bold"
-                              >
-                                <input
-                                  hidden
-                                  type="file"
-                                  name={`image-${item._id}`}
-                                  id={`image-${item._id}`}
-                                  onChange={(e) =>
-                                    handleFileChange(e, item._id)
-                                  }
-                                />
-                                {imageFile !== null &&
-                                // @ts-ignore
-                                imageFile[item._id] &&
-                                // @ts-ignore
-                                imageFile[item._id]?.name
-                                  ? // @ts-ignore
-                                    imageFile[item._id]?.name
-                                  : 'Choose Image'}
-                              </label>
-                              <button
-                                // @ts-ignore
-                                onClick={() => handleClick(item._id)}
-                                disabled={isActivitySubmitted}
-                                className={`${
-                                  imageFile[item._id]
-                                    ? 'rounded-xl text-black font-bold bg-green-400 h-[40px] w-[150px]'
-                                    : ''
-                                }`}
-                              >
-                                Upload
-                              </button>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-                    );
-                  })
-                : 'No Data Found!'}
+                      );
+                    })
+                  : 'No Data Found!'}
+              </div>
             </div>
-          </div>
+          </>
         )}
       </div>
     </div>
