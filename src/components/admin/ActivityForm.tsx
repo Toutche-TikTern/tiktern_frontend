@@ -1,11 +1,12 @@
 'use client';
 import { axiosClient } from '@/utils/axiosInstance';
-import { Button, TextField, styled } from '@mui/material';
+import { Button, CircularProgress, TextField, styled } from '@mui/material';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs, { Dayjs } from 'dayjs';
 import React, { useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
 
 // const CssTextField = styled(TextField)({
 //   '& label': {
@@ -32,14 +33,14 @@ import React, { useState } from 'react';
 //   },
 // });
 
-const ActivityForm = () => {
+const ActivityForm = ({ themeMode }: { themeMode: boolean }) => {
   const [state, setState] = useState({
     activity_link: '',
     activity_desc: '',
     terns_reward: 0,
     tiks_reward: 0,
   });
-
+  const [isUploading, setIsUploading] = useState<boolean>(false);
   const [activityExpiryDate, setActivityExpiryDate] =
     React.useState<Dayjs | null>(dayjs('03/03/2023'));
 
@@ -54,6 +55,7 @@ const ActivityForm = () => {
   // handle submit and hit activity creation api
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsUploading(true);
     const token = localStorage.getItem('token');
     console.log('CLIENT STATE:: ', state);
 
@@ -66,11 +68,24 @@ const ActivityForm = () => {
         terns_reward: state.terns_reward,
         tiks_reward: state.tiks_reward,
       };
-      await axiosClient.post('/activity', data, {
+      const res = await axiosClient.post('/activity', data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
+      if (res) {
+        toast.success('Activity has been successfully created...', {
+          position: 'bottom-right',
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'colored',
+        });
+      }
+      setIsUploading(false);
     } catch (error) {
       console.log('Error in creating activity!');
     }
@@ -78,16 +93,21 @@ const ActivityForm = () => {
 
   return (
     <form
-      className="flex flex-col w-[90%] md:w-[60%] gap-[20px]"
+      className={`flex flex-col w-[90%] md:w-[60%] gap-[20px] ${
+        themeMode ? 'text-black' : 'text-white'
+      }`}
       onSubmit={handleSubmit}
     >
+      <ToastContainer />
       <textarea
         name="activity_desc"
         id="activity_desc"
         cols={30}
         rows={10}
         placeholder="📝 Enter the activity description"
-        className="admin-activity-form_textarea"
+        className={`admin-activity-form_textarea ${
+          themeMode ? 'text-black' : 'text-white'
+        }`}
         onChange={handleOnChange}
       />
       <input
@@ -95,7 +115,9 @@ const ActivityForm = () => {
         name="activity_link"
         id="activity_link"
         placeholder="📝 Enter the activity link"
-        className="admin-activity-form_text"
+        className={`admin-activity-form_textarea ${
+          themeMode ? 'text-black' : 'text-white'
+        }`}
         onChange={handleOnChange}
       />
       <input
@@ -105,7 +127,9 @@ const ActivityForm = () => {
         min={0}
         minLength={0}
         placeholder="̧📝 Enter the Terns will be rewarded"
-        className="admin-activity-form_text"
+        className={`admin-activity-form_textarea ${
+          themeMode ? 'text-black' : 'text-white'
+        }`}
         onChange={handleOnChange}
       />
       <input
@@ -115,7 +139,9 @@ const ActivityForm = () => {
         min={0}
         minLength={0}
         placeholder="Enter the Tiks will be rewarded"
-        className="admin-activity-form_text"
+        className={`admin-activity-form_textarea ${
+          themeMode ? 'text-black' : 'text-white'
+        }`}
         onChange={handleOnChange}
       />
       <div className="bg-white p-[10px] pt-[15px] rounded-[14px]">
@@ -136,9 +162,10 @@ const ActivityForm = () => {
       <Button
         type="submit"
         variant="contained"
+        disabled={isUploading}
         className="bg-app-1 text-black/80 hover:text-white"
       >
-        Create Activity
+        {isUploading ? <CircularProgress /> : 'Create Activity'}
       </Button>
     </form>
   );

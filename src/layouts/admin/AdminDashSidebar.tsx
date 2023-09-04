@@ -126,16 +126,16 @@ const PATHS = [
     link: '/admin/users',
     icon: () => <FaRunning />,
   },
-  {
-    name: 'Activity History',
-    link: '/admin/activity-history',
-    icon: () => <FaRunning />,
-  },
-  {
-    name: 'Analytics',
-    link: '/admin/analytics',
-    icon: () => <MdArchive />,
-  },
+  // {
+  //   name: 'Activity History',
+  //   link: '/admin/activity-history',
+  //   icon: () => <FaRunning />,
+  // },
+  // {
+  //   name: 'Analytics',
+  //   link: '/admin/analytics',
+  //   icon: () => <MdArchive />,
+  // },
   {
     name: 'Settings',
     link: '/admin/settings',

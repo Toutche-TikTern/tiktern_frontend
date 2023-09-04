@@ -1,15 +1,18 @@
 'use client';
 import ActivityForm from '@/components/admin/ActivityForm';
 import AdminHeader from '@/components/admin/AdminHeader';
+import { useThemeContext } from '@/contexts/theme.context';
 import React from 'react';
 
 const ActivityPage = () => {
+  const { setThemeMode, themeMode } = useThemeContext();
+
   return (
     <main className="flex-1">
       <AdminHeader title="Create/Update/Delete Activities" />
 
       <section className="p-[20px]">
-        <ActivityForm />
+        <ActivityForm themeMode={themeMode} />
       </section>
     </main>
   );

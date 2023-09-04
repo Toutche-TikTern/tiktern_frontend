@@ -1,11 +1,14 @@
 'use client';
 
 import AdminHeader from '@/components/admin/AdminHeader';
+import { useThemeContext } from '@/contexts/theme.context';
 import { axiosClient } from '@/utils/axiosInstance';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 
 const ManageUsersPage = () => {
+  const { setThemeMode, themeMode } = useThemeContext();
+
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -31,7 +34,7 @@ const ManageUsersPage = () => {
   }, []);
 
   return (
-    <main className="flex-1 ">
+    <main className={`flex-1 ${themeMode ? 'text-black' : 'text-white'}`}>
       <AdminHeader title="Create/Delete/Update Roles of Users" />
 
       {isLoading ? (
@@ -42,7 +45,7 @@ const ManageUsersPage = () => {
           <span className="animate-bounce">.</span>
         </section>
       ) : (
-        <section className="p-5">
+        <section className="p-5 h-[calc(100vh-80px)] overflow-y-auto">
           {/* create users form */}
           <div className="flex w-full">
             <div className="w-[20%]">User</div>
@@ -54,10 +57,15 @@ const ManageUsersPage = () => {
               // @ts-ignore
               data.map((item, index) => {
                 return (
-                  <div key={index} className="flex w-full ">
+                  <div
+                    key={index}
+                    className={`flex w-full  p-[10px] rounded-[12px] ${
+                      themeMode ? 'odd:bg-slate-100' : 'odd:bg-dark-600'
+                    }`}
+                  >
                     <div className="w-[20%]">
                       {/* @ts-ignore */}
-                      {item.fname || item.username || item.email}
+                      {index + 1}: {item.fname || item.username || item.email}
                     </div>
                     {/* activity data map */}
                     <div className="flex flex-col flex-1 gap-2">
@@ -77,7 +85,7 @@ const ManageUsersPage = () => {
                                     {/* @ts-ignore */}
                                     <Image
                                       loader={() => photo}
-                                      alt="phto"
+                                      alt="TikTern User Image"
                                       src={photo}
                                       width={100}
                                       height={100}
