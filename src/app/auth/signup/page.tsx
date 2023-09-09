@@ -68,12 +68,15 @@ const SignUpPage = () => {
     <main className="flex flex-col items-center h-screen bg-white p-[20px]">
       {/* logo */}
       <div className="md:mt-[140px]">
-        <Image
-          src={'/logos/tik_logo-black.svg'}
-          alt="TikTern Logo"
-          width={200}
-          height={100}
-        />
+        <Link href={'/'}>
+          <Image
+            src={'/logos/tik_logo-black.svg'}
+            alt="TikTern Logo"
+            width={200}
+            height={100}
+            className="cursor-pointer"
+          />
+        </Link>
       </div>
       <div className="md:h-[120px] mt-12 flex items-center text-[28px] font-medium">
         Create an account
