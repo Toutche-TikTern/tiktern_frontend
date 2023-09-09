@@ -5,6 +5,7 @@ import {
   SectionHeading,
 } from '@/styles/styled_components/components/Text.styled';
 import { Button } from '@mui/material';
+import Link from 'next/link';
 import React from 'react';
 import { CardContainer, TikternIsForCard } from '../Landing.styled';
 
@@ -67,7 +68,7 @@ const SecondSection = ({ themeMode }: { themeMode: boolean }) => {
       </p>{' '}
       <div className="flex justify-center w-full">
         <Button variant="contained" className="custom-btn !mt-10">
-          Join the Whitelist Now
+          <Link href={'/auth/signup'}>Join the Whitelist Now</Link>
         </Button>
       </div>
     </section>

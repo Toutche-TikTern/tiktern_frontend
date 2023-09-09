@@ -3,6 +3,7 @@
 import { SectionHeading } from '@/styles/styled_components/components/Text.styled';
 import { Button } from '@mui/material';
 import Image from 'next/image';
+import Link from 'next/link';
 import React from 'react';
 import TabContainer from './Tabs/TabContainer';
 
@@ -138,7 +139,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           set of privileges in return.
         </p>
         <Button variant="contained" className="!mt-10 custom-btn">
-          Join the Whitelist Now
+          <Link href={'/auth/signup'}>Join the Whitelist Now</Link>
         </Button>
       </div>
 
@@ -328,7 +329,7 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
               className="mt-10 rounded-lg"
             />
             <Button variant="contained" className="!mt-10 custom-btn">
-              Join the Whitelist Now
+              <Link href={'/auth/signup'}>Join the Whitelist Now</Link>
             </Button>
           </div>
         </div>

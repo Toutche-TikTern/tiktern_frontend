@@ -110,11 +110,16 @@ const SignUpPage = () => {
       </form>
 
       <div className="mt-16 text-lg">Already have an account</div>
-      <Link href={'/auth/login'} className="w-full">
+      <div className="flex justify-center w-full">
         <div className="bg-gray-50 h-[60px] w-full md:w-[400px] rounded-lg text-[16px] flex justify-center items-center border border-gray-100 drop-shadow mt-4">
-          Login
+          <Link
+            href={'/auth/login'}
+            className="flex items-center justify-center w-full h-full"
+          >
+            Login
+          </Link>
         </div>
-      </Link>
+      </div>
     </main>
   );
 };
