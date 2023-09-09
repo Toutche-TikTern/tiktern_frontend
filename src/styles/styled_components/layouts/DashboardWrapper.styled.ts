@@ -20,7 +20,7 @@ export const SidebarContainer = styled.div<{ open: boolean }>`
   left: ${({ open }) => (open ? '0' : '-300px')};
   transition: left 0.3s ease;
   /* background-color: #f0f0f0; */
-  z-index: 10000;
+  z-index: 100;
 `;
 
 export default DashboardWrapper;

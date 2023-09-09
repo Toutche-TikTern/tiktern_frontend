@@ -1,14 +1,19 @@
 'use client';
 import SidebarLink from '@/components/user/SidebarLink';
 import { SidebarContainer } from '@/styles/styled_components/layouts/DashboardWrapper.styled';
+import CloseIcon from '@mui/icons-material/Close';
+import MenuIcon from '@mui/icons-material/Menu';
 import { getCookie } from 'cookies-next';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import { AiFillSetting } from 'react-icons/ai';
 import { FaRunning } from 'react-icons/fa';
+
+import { toggleSidebar } from '@/store/features/togglesSlice';
+import { IconButton, Tooltip } from '@mui/material';
 import { MdArchive, MdSpaceDashboard } from 'react-icons/md';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useThemeContext } from '../../contexts/theme.context';
 
 interface USER {
@@ -20,9 +25,11 @@ interface USER {
 }
 
 const AdminDashSidebar = () => {
+  const dispatch = useDispatch();
   const { setThemeMode, themeMode } = useThemeContext();
   const isSidebarOpen = useSelector((state: any) => state.toggles.sidebar);
   const [user, setUser] = useState<USER | null>({});
+  const [userImg, setUserImg] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
   // @ts-ignore
   // const { loading, success, userInfo } = useSelector((state) => state.user);
@@ -38,8 +45,16 @@ const AdminDashSidebar = () => {
     if (getUser !== undefined && getUser !== null) {
       setUser(getUser);
       setIsLoading(false);
+      const userLocalImage = localStorage.getItem('userImage');
+      if (userLocalImage !== undefined && userLocalImage !== null) {
+        setUserImg(userLocalImage);
+      }
     }
   }, []);
+
+  const handleSidebar = () => {
+    dispatch(toggleSidebar());
+  };
 
   return (
     <SidebarContainer
@@ -47,7 +62,7 @@ const AdminDashSidebar = () => {
       className="drop-shadow-xl !bg-dark-800"
     >
       {/* logo */}
-      <div className="flex items-center justify-center h-[15vh]">
+      <div className="flex items-center justify-between h-[15vh] px-[10px]">
         <Link href={'/'}>
           <Image
             alt="Tiktern Logo"
@@ -56,19 +71,36 @@ const AdminDashSidebar = () => {
             width={200}
           />
         </Link>
+        <Tooltip title="Open/Close Menu" className="">
+          <IconButton onClick={handleSidebar}>
+            <div className="mt-[10px] w-[40px] h-[40px] text-xs font-semibold transition-all duration-300 ease-in-out rounded-2xl text-light-300 hover:scale-95 border border-white/30 flex justify-center items-center">
+              {isSidebarOpen ? <CloseIcon /> : <MenuIcon />}
+            </div>
+          </IconButton>
+        </Tooltip>
       </div>
       {/* ***************profile--section*********** */}
       <div className="h-[20vh] justify-center  flex flex-col items-center gap-2">
         {/* avatar */}
-        <div className="w-[80px] h-[80px] flex items-center justify-center rounded-full text-black/90 bg-app-1 font-bold relative">
-          <h1 className="text-3xl text-black/80">
-            {user && user.fname
-              ? user.fname.replace(/\W*(\w)\w*/g, '$1').toUpperCase()
-              : ':)'}
-          </h1>
-          <div className="absolute text-[10px] top-[0px] right-[-10px] bg-rose-500 text-white/90 p-[3px] rounded-full drop-shadow">
-            Admin
-          </div>
+        <div
+          className={`relative w-[80px] h-[80px] flex items-center justify-center rounded-full ${
+            themeMode ? 'text-black/90' : 'text-black'
+          } bg-app-1 font-bold`}
+        >
+          {userImg ? (
+            <Image
+              src={`https://tiktern-backend.azurewebsites.net/uploads/${userImg}`}
+              alt="tiktern user image"
+              fill
+              className="object-cover rounded-full"
+            />
+          ) : (
+            <h1 className={`text-3xl text-black/80`}>
+              {user && user.fname
+                ? user.fname.replace(/\W*(\w)\w*/g, '$1').toUpperCase()
+                : '😀'}
+            </h1>
+          )}
         </div>
         {/* name */}
         <div className="text-xl">

@@ -11,7 +11,7 @@ const ActivityPage = () => {
     <main className="flex-1">
       <AdminHeader title="Create/Update/Delete Activities" />
 
-      <section className="p-[20px]">
+      <section className="p-[20px] h-[calc(100vh-80px)] overflow-y-auto">
         <ActivityForm themeMode={themeMode} />
       </section>
     </main>

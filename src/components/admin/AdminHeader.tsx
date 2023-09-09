@@ -23,8 +23,8 @@ const AdminHeader = ({ title }: { title: string }) => {
   };
   return (
     <nav className="flex px-[20px] items-center bg-dark-800  justify-between w-full h-[80px] border-b border-white/10">
-      <div className="text-2xl font-light">{title}</div>
-      <div>
+      <div className="text-sm font-light md:text-2xl">{title}</div>
+      <div className="flex">
         <Tooltip title="Menu" className="">
           <IconButton onClick={handleSidebar}>
             <div className="w-[40px] h-[40px] text-xs font-semibold transition-all duration-300 ease-in-out rounded-2xl text-light-300 hover:scale-95 border border-white/30 flex justify-center items-center">
