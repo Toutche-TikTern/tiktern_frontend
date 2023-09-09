@@ -13,6 +13,8 @@ export const CardContainer = styled.div`
   padding-bottom: 20px;
   @media (max-width: ${WIDTH.mobileMax}) {
     padding-bottom: 20px;
+    padding-right: 15%;
+    padding-left: 15%;
     flex-direction: column;
     /* padding-right: 2%;
     padding-left: 2%; */
@@ -25,6 +27,7 @@ export const TikternIsForCard = styled.div`
   align-items: center;
   background-color: ${(props) => props.color};
   width: 30%;
+  height: 380px;
   padding: 15px 15px 20px 30px;
   border-radius: 12px;
   color: #fff;

@@ -9,7 +9,7 @@ const TabTwo = ({ themeMode }: Props) => {
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
         {/* ----- */}
         <div
-          className={`relative w-[150px] h-[150px] md:w-[200px] md:h-[200px] `}
+          className={`relative w-[100px] h-[100px] md:w-[200px] md:h-[200px] `}
         >
           <Image
             alt="TikTern"
@@ -39,7 +39,7 @@ const TabTwo = ({ themeMode }: Props) => {
       <div className="flex flex-col items-center w-1/2 drop-shadow-xl">
         {/* --------- */}
         <div
-          className={`relative w-[150px] h-[150px] md:w-[200px] md:h-[200px] `}
+          className={`relative w-[100px] h-[100px] md:w-[200px] md:h-[200px] `}
         >
           <Image
             alt="TikTern"

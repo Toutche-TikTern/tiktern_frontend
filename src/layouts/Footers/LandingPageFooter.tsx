@@ -23,20 +23,20 @@ const LandingPageFooter = ({ themeMode }: { themeMode: boolean }) => {
         TikTern will get more people onto bikes/ebikes, with a goal to build
         Sustainable Living and Healthy Lifestyles
       </h1>
-      <div className="flex flex-col md:flex-row items-center justify-center w-[90%] md:w-[35%] mx-auto gap-[120px] mt-[100px] font-bold">
-        <div className="flex flex-col items-center justify-center text-[#4d69ff] text-2xl text-center w-1/2">
+      <div className="grid  grid-cols-2 md:grid-cols-4 gap-y-[50px] md:gap-x-[200px]  items-center justify-center w-[90%] md:w-[35%] mx-auto  mt-[100px] font-bold">
+        <div className="flex flex-col items-center justify-center text-[#4d69ff] text-xl md:text-2xl text-center w-full">
           <SportsGymnasticsIcon className="w-[40px] h-[40px] mb-[10px]" />
           Healthy <br /> Lifestyles
         </div>
-        <div className="flex flex-col items-center justify-center text-[#04ec1b] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#04ec1b] text-xl md:text-2xl text-center w-full">
           <AirIcon className="w-[40px] h-[40px] mb-[10px]" />
           Cleaner <br /> Air
         </div>
-        <div className="flex flex-col items-center justify-center text-[#d830dc] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#d830dc] text-xl md:text-2xl text-center w-full">
           <DirectionsCarIcon className="w-[40px] h-[40px] mb-[10px]" />
           Reduced <br /> Congestion
         </div>
-        <div className="flex flex-col items-center justify-center text-[#ff4d00] text-2xl text-center w-1/2">
+        <div className="flex flex-col items-center justify-center text-[#ff4d00] text-xl md:text-2xl text-center w-full">
           <EmojiEmotionsIcon className="w-[40px] h-[40px] mb-[10px]" />
           Happier <br /> People
         </div>

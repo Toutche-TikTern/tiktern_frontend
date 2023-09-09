@@ -172,8 +172,8 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-1.png'}
-            width={150}
-            height={150}
+            width={100}
+            height={100}
           />
           <h5 className="mt-5 text-xl font-bold">EARLY CONTRIBUTORS</h5>
           <p
@@ -190,8 +190,8 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-2.png'}
-            width={150}
-            height={150}
+            width={100}
+            height={100}
           />
           <h5 className="mt-5 text-xl font-bold">NETWORK DEVELOPMENT</h5>
           <p
@@ -208,8 +208,8 @@ const ThirdSection = ({ themeMode }: { themeMode: boolean }) => {
           <Image
             alt="tiktern"
             src={'/imgs/club-icon-3.png'}
-            width={150}
-            height={150}
+            width={100}
+            height={100}
           />
           <h5 className="mt-5 text-xl font-bold">EXCLUSIVE PRIVILEGES</h5>
           <p
